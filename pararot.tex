@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+% you can delete this line if you don't use libertine with oldstyle figures:
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.4,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{26.05.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}}
+\setdoublesep{3pt}
+
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: Diazotierung und Azo-Kupplung}
+
+%Gruppen
+\definesubmol{diazo}{\chemfig{*6((-O_2N)-=-(-\chemabove[0.5pt]{N}{\scriptstyle\oplus}~N)=-=)}}
+\definesubmol{wdiazo}{\chemfig{*6((-O_2N)-=-(-N=N)=-=)}}
+\definesubmol{betanaphtol}{\chemfig{*6(=-*6(-=-(-OH)=-)=-=-)}}
+\setarrowdefault{,1.5,,thick}
+\textbf{Diazotierung:}
+\begin{center}
+
+\scalebox{.8}{
+\schemestart
+\chemname{\chemfig{*6((-O_2N)-=-(-NH_2)=-=)}}{\ce{C6H6N2O2}\\ M = 138,13 \si{\gram\per\mole} \\\\ \textit{p}-Nitroanilin}
+\arrow{->[\chemfig{NaNO_2/HCl}][][30pt]}
+\chemname{\chemfig{!{diazo}}}{\ce{C6H10}\\ M = 82.15 \si{\gram\per\mole} \\\\Diazoniumsalz }
+\schemestop
+}
+\end{center}
+\textbf{Azo-Kupplung:}\\
+\scalebox{.8}{
+\schemestart
+\chemname{\chemfig{*6(=-*6(-=-(-OH)=-)=-=-)}}{\ce{C10H8O}\\ M = 144,17 \\\\ \beta-Naphtol}
+\+{,,13pt}
+\chemname{\chemfig{!{diazo}}}{}
+\arrow{->[\chemfig{NaOH}][][30pt]}
+\chemname{\chemfig{*6(=-*6(-=-(-OH)=(-N=[::+60]N-[::-60](*6(-=-(-NO_2)=-=)))-)=-=-)}}{\ce{C16H11N3O3}\\ M = 293,28 \si{\gram\per\mole} \\\\1-(4-Nitrophenylazo)-2-naphthol}
+\schemestop
+}
+\newpage
+
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: }
+Es sollten 10.000 g (34.097 mmol) 1-(4-Nitrophenylazo)-2-naphthol hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+\textit{p}-Nitroanilin & 1.00 eq  & 42.60 mmol & 5.900 g & \\
+\chembeta-naphtol  & 1.00 eq  & 42.60 mmol &  6.100 g & \\
+Natriumnitrit (2.5 M ) & 1.07 eq & 45.58 mmol & 3.144 g & 18.2 ml\\
+Natronlauge (2 M) & 2.00 eq  & 185.2 mmol& & 42.6 ml\\
+\end{tabular}
+
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+
+\section{Durchführung \cite{organikum}}
+In einem 500 ml-Dreihalskolben wurden 5.90 g (42.60 mmol) \textit{p}-Nitroanilin und 24.87 ml einer drittel konz. Salzsäure vorgelegt und mittels eines Eisbads auf 0 \si{\celsius} gekühlt. Es wurden 3.14 g (45.58 mmol) Natriumnitrit-Lösung (2.5 M) tropfenweise dem Reaktionsgemisch zugesetzt. Es war dabei ein Ausfall eines gelben Niederschlags zu beobachten. Es wurde darauf geachtet, dass die Reaktionstemperatur unter 0 \si{\celsius} blieb. Zur Darstellung des Farbstoffs Pararot wurden einem 1000-ml-Dreihalskolben ausgestattet mit Thermometer, Rückflusskühler und Tropftrichter. In dem Kolben wurden 6.10 g (42.60 mmol) \chembeta-naphtol mit 18.2 ml (45.58 mmol) Natronlauge gemischt. Der Kolben wurde in ein Eisbad gestellt und auf 0 \si{\celsius} abgekühlt. Im Anschluss wurde das Diazoniumsalz unter gutem Rühren über Tropftrichter zu der Lösung getropft. Dabei fiel ein roter Niederschlag aus. Nach vollständiger Zugabe wurde die Suspension über Nacht gerührt und im Anschluss abfiltriert. Der Filterkuchen wurde zur Trocknung in den Trockenschrank gestellt. Das Produkt Pararot wurde als roter Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute}
+\begin{tabular}{ rl}
+ 12.500 g (42.60 mmol) =  & 100 \%\\
+  7.520 g (25.64 mmol) =  & 60 \% (Lit.\cite{organikum} : 80 \%) \\
+ \end{tabular}
+\pagebreak
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes}
+\textit{Pararot} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{sigma} : & $ 248-252 \,^{\circ}\mathrm{C} $ & &  \\
+   Exp. :& $ 251 \,^{\circ}\mathrm{C} $ & &  \\
+ \end{tabular}
+\section{Spektrenauswertung}
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3373 ( -O-H Valenz-Schwingung),
+3114 ( =C-H Valenz-Schwingung),
+1668 ( -C=N Valenz-Schwingung),
+1554 ( -C=C Valenz-Schwingung) cm$^{-1}$.\\
+
+%\data{IR}[NaCl] \val{2935} (w), \val{3061} (w)
+   %\val{2.01} (s, \#{24}, \pos{5}), \val{2.31} (s, \#{12},9 \pos{1}),
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.90\textwidth}
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta =
+\val{6.74--7.61} (m, \#{7}, \pos{3}, \pos{4}, \pos{6}, \pos{7}, \pos{8}, \pos{9}),
+\val{7.72} (d, $^{3\!}J = 9.0$ \si{\Hz}, \#{2}, \pos{12}, \pos{15}),
+\val{8.36} (d, $^{3\!}J = 9.0$ \si{\Hz}, \#{2}, \pos{13}, \pos{14}),
+\val{16.16} (s, \#{1}, \pos{16}, \pos{16}) ppm.
+  \end{minipage}
+  \hfill
+\begin{minipage}[t][][b]{0.10\textwidth}
+
+\chemfig[][scale=.7]{*6((!\nobond\chembelow[1ex]{}{7})=(!\nobond\chembelow[1ex]{}{6})-(!\nobond\chembelow[1ex]{}{5})*6(-(!\nobond\chembelow[1ex]{}{4})=(!\nobond\chembelow[1ex]{}{3})-(!\nobond\chemabove[1ex]{}{2})(-\chemabove[1ex]{O}{16}H)=(!\nobond\chemabove[1ex]{}{\hspace{3.5mm} 1})(-N=[::+60]N-[::-60](*6((!\nobond\chembelow[1ex]{}{\hspace{5mm} 11})-(!\nobond\chembelow[1ex]{}{15})=(!\nobond\chemabove[1ex]{}{14})-(-NO_2)=(!\nobond\chemabove[1ex]{}{13})-(!\nobond\chembelow[1ex]{}{12})=)))-)=(!\nobond\chemabove[1ex]{}{10})-(!\nobond\chemabove[1ex]{}{9})=(!\nobond\chemabove[1ex]{}{8})-)}
+  \end{minipage}
+\end{experimental}
+
+\section{Mechanismus\cite{bio}}
+\setarrowdefault{,0.7,}
+Durch die Behandlung des Natriumnitrits mit drittelkonzentrierter Salzsäure wird ein Nitrosium-Ion \textbf{1} als Elektrophil gebildet. Die Reaktion zur Diazonium-Verbindung verläuft über mehrere Stufen. Zuerst reagiert \textit{p}-Nitroanilin \textbf{(2)} mit dem Elektrophil \textbf{1} und es entsteht das \textit{N}-Nitrosoamoniumion \textbf{3}. Das entstandene Kation \textbf{3} gibt ein Proton ab. Das gebildete Zwischenprodukt ist ein Nitrosamin \textbf{4}, welches in seine tautomere Form \textbf{5} vorliegt. Das Oxim \textbf{5} wird unter Bildung des Diazooxoniumions \textbf{6} protoniert. Unter Abspaltung von Wasser entsteht das Diazoniumsalz \textbf{7}.
+Im zweiten Teil der Reaktion erfolgt eine Azo-Kupplung-Reaktion. Dabei handelt es sich um eine elektrophile Addition am Aromaten. Da Aryldiazoniumsalze \textbf{7} schwache Elektrophile sind, gehen sie nur mit aktivierten Aromaten Reaktionen ein \cite{reak}. In dem ersten Schritt der Azo-Kupplung wird das \chembeta-Naphtol \textbf{(8)} deprotoniert. Es bildet sich eine Phenolat-Anion \textbf{9}, welches einen aktivierten Ring besitzt. Das Diazoniumkation \textbf{7} addiert sich an das Phenolat-Anion \textbf{9}. Das entstandene Zwishenstufe \textbf{10} bildet unter Deprotonierung die Enolat-Form \textbf{11} des Endproduktes \textbf{12}. Es entsteht durch Protonierung des Enolats \textbf{11} \iupac{1\-(4\-Nitrophenylazo)\-2\-naphthol} \textbf{12}.
+\section{Abfallentsorgung}
+Die Abfälle des Diazotierungschrittes wurden mit Salzsäure angesäuert und im Behälter für saure Lösungsmittelabfälle entsorgt. Die basische Azo-Kupplung Abfälle wurden im Behälter für basische wässrige Abfälle entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 645.
+\bibitem{bio}
+A. Gossauer, \textit{Einführung in der Organische Chemie}, 1. Aufl., Wiley-VCH, Zurich \textbf{2006}, S. 257.
+\bibitem{sigma}
+\url{http://www.sigmaaldrich.com/catalog/product/sial/100994?lang=de&region=DE} (Stand: 26.05.1014).
+\bibitem{reak}
+\url{http://www.organische-chemie.ch/OC/Namen/Azokupplung.htm} (Stand: 26.05.1014).
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

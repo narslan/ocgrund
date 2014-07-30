@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+%\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+%\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{09.07.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+\begin{document}
+\begin{onehalfspace}
+%[,0.2,,,draw=none]
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Diels-Alder-Reaktion}} 
+%Gruppen
+\setarrowdefault{,1.5,,thick}
+\scalebox{.8}{
+%\schemedebug{true}
+\schemestart
+\chemname[17ex]{\chemfig{*6(-=*6(-=*6(-=-=--)-=--)-=-=)}}{\ce{C14H10}\\ M = 178.24 \si{\gram\per\mole} \\\\ Anthracen}
+\arrow{0}[,0]
+\+{,,-14pt}
+\chemname[11ex]{\chemfig{[:-72]*5(=-([:-72,0.75]=O)-O-([:72,0.75]=O)-)}}{\ce{C4H2O3}\\ M = 98.06 \si{\gram\per\mole} \\\\Maleinsäureanhydrid}
+\arrow(--.base west){->[$\Delta$][][60pt]}[,2]
+\chemname[-5ex]{\chemfig{[:-14]*6(-=(-[:18,1.4]?[a](-[:80,1.45]?[b]))-(-[:18](-[:80,1.6]?[b](-[:45,0.75](=[:108,0.75]O)-[:-18,0.65]O-[:-108,0.75]?[b](=[:-45,0.65]O)))-[:-14]*6(-?[a]=-=-=))=-=)}}{\ce{C18H12O3}\\ M = 276.29 \si{\gram\per\mole}\\\\
+\cis-9,10-Dihydro-9,10-ethanoanthracen-\\ 11,12-dicarbonsäureanhydrid}
+\schemestop
+}
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (18.10 mmol) \iupac{\cis-9,10-Dihydro-9,10-ethanoanthracen-11,12-dicarbonsäureanhydrid} hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Anthracen & 1.00 eq  & 22.02 mmol & 3.925 g & \\
+Maleinsäureanhydrid  & 1.00 eq  & 22.02 mmol & 2.150 g & \\
+Xylol  &   & &  & 300 ml\\
+\end{tabular}\\[0.5cm]
+%\footnotesize \textit{$^\ast$ 50\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+Zuerst wurden 3.925 g (22.02 mmol) Anthracen und 2.150 g (22.02 mmol) Maleinsäureanhydrid in 300 ml Xylol gelöst. Im Anschluss wurden beide Komponenten in einem 500 ml-Dreihalskolben, ausgestattet mit Rückflusskühler und Thermometer, vorgelegt und zum Sieden erhitzt. Das Reaktionsgemisch wurde für 10 Minuten gerührt und anschließend abgekühlt. Es fiel dabei ein Feststoff aus. Danach wurde das Rohprodukt/Xylol Gemisch destillativ aufgereinigt und das Rohprodukt aus Xylol krystallisiert. Das Produkt wurde als farbloser Feststoff erhalten.
+
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  5.556 g (20.10 mmol) =  & 100 \%\\
+  3.959 g (14.32 mmol) =  & 71  \% (Lit.\cite{organikum} : 90 \%) \\
+ \end{tabular}
+%\newpage
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{\cis-9,10-Dihydro-9,10-ethanoanthracen-11,12-dicarbonsäureanhydrid} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{organikum} : &  262 \si{\celsius}  & &  \\
+   Exp. :&  260 \si{\celsius} & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3080 (=C-H-Valenzschwingung, Aromat), 1868, 1772 ( -C=O-Valenzschwingung), 1460 ( -C=C-Valenzschwingung, Aromat) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.60\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta\hspace{3pt}=
+\val{3.62} (s, \#{2}, \pos{9}, \pos{10}),
+\val{4.88} (s, \#{2}, \pos{7}, \pos{8}),
+\val{7.18--7.41} (m, \#{8}, \pos{1}, \pos{2}, \pos{3}, \pos{4}, \pos{12}, \pos{13}, \pos{14}, \pos{15}) ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.4\textwidth} 
+%[:-14]*6(-=(-[:18,1.4]?[a](-[:80,1.45]?[b]))-(-[:18](-[:80,1.6]?[b](-[:45,0.75](=[:108,0.75]O)-[:-18,0.65]O-[:-108,0.75]?[b](=[:-45,0.65]O)))-[:-14]*6(-?[a]=-=-=))=-=)
+
+\chemfig{[:-14]*6((!\nobond\chembelow[1ex]{}{\textit{2}})-(!\nobond\chembelow[1ex]{}{\textit{1}})=(!\nobond\chembelow[1ex]{}{\textit{6}})(-[:18,1.2]?[a]((!\nobond\chembelow[1ex]{}{\hspace{-2mm}\textit{7}})-[:80,1.60]?[b](!\nobond\chembelow[1.1ex]{}{\hspace{3mm}\textit{10}})))-(!\nobond\chemabove[1ex]{}{\textit{5}})(-[:18](!\nobond\chemabove[0.9ex]{}{\textit{\hspace{-4pt}8}})(-[:80,1.6]?[b]((!\nobond\chemabove[1.1ex]{}{\textit{9}})-[:45,0.75](=[:108,0.75]O)-[:-18,0.65]O-[:-108,0.75]?[b](=[:-30,0.6]O)))-[:-14]*6((!\nobond\chemabove[1ex]{}{\textit{11}})-(!\nobond\chembelow[1.2ex]{}{\textit{16}})?[a]=(!\nobond\chembelow[1ex]{}{\textit{15}})-(!\nobond\chembelow[1ex]{}{\textit{14}})=(!\nobond\chemabove[1ex]{}{\textit{13}})-(!\nobond\chemabove[0.8ex]{}{\hspace{3mm}\textit{12}})=))=(!\nobond\chemabove[1ex]{}{\textit{4}})-(!\nobond\chemabove[1ex]{}{\textit{3}})=)}
+\end{minipage}
+\end{experimental}
+\section{Mechanismus\cite{organikum}\cite{sig}\cite{art}}
+Die Diels-Alder-Reaktion verläuft in einem Schritt. In einer konzertierten Cycloaddition vereinigen sich Anthracen (\textbf{1}) und Maleinsäureanhydrid (\textbf{2}) unter Bildung eines sechsgliedrigen Übergangzustandes das \textit{cis}-9,10-Dihydro-9,10-ethanoanthracen-11,12-dicar-\\bonsäureanhydrid (\textbf{3}). Werden der Übergangzustand der Reaktion anhand der MO-Theorie betrachtet, so wird das Anthracen (\textbf{1}) als Dien und das Maleinsäureanhydrid (\textbf{2}) Dienophil bezeichnet. Dabei treten das höchstbesetze Orbital (HOMO) des Diens \textbf{1} und das niedrigste unbesetzte Orbital (LUMO) des Dienophils \textbf{2} in Wechselwirkung. Unter Aufhebung zweier $\pi$-Bindungen werden zwei neue $\sigma$-Bindungen gebildet. Dies ist die Triebkraft der Reaktion. Da die neuen $\sigma$-Bindungen jeweils von einer Seite der $\pi$-Systeme aus gebildet werden, wird die Diels-Alder-Reaktion als suprafaciale Addition bezeichnet. 
+
+\section{Abfallentsorgung}
+Das Lösungsmittel wurde im Behälter für halogenfreie Kohlenwasserstoffe entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 333. 
+\bibitem{sig}
+S. Hauptmann, \textit{Organischen Chemie}, 1. Aufl., Verlag Harri, Frankfurt \textbf{1985}, S. 247.
+\bibitem{art}
+R. Grossman, \textit{The Art of Writing Reasonable Organic Reaction Mechanism}, 2. Aufl., Springer-Verlag, New York \textbf{2002}, S. 173.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

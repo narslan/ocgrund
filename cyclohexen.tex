@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{color}
+
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{22.05.2014}
+\setlength{\headheight}{15pt}
+
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: $E_1$, Eliminierung erster Ordnung} 
+\begin{center}
+\schemestart
+\chemname{\chemfig{*6(----(-OH)--)}}{\footnotesize \ce{C6H11OH}\\ \footnotesize M = 100.16 \si{\gram\per\mole} \\\\Cyclohexanol}
+\arrow{->[\chemfig{H_3PO_4}][][15pt]}[,2,,thick]
+\chemname{\chemfig{*6(---=(-[,,,,draw=none]\textcolor{white}{OH})--)}}{\footnotesize \ce{C6H10}\\ \footnotesize M = 82.15 \si{\gram\per\mole} \\\\Cyclohexen}
+\schemestop
+%\schemestart
+%\subscheme{
+%\chemname{\chemfig[][scale=0.9]{*6(----(-OH)--)}}{\footnotesize \ce{C6H11OH}\\ \scriptsize M = 100.16 \si{\gram\per\mole} \\\\Cyclohexanol}
+%}
+%\subscheme{
+%\arrow{->[\chemfig{H_3PO_4}][][15pt]}
+%\chemname{\chemfig[][scale=0.9]{*6(---=--)}}{\footnotesize \ce{C6H10}\\ \scriptsize M = 82.15 \si{\gram\per\mole} \\\\Cyclohexen}
+%}
+%\chemsign{+}
+%\chemfig{H_2O}
+\end{center}
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 10.000 g (121.7 mmol) Cyclohexen hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Cyclohexanol 		& 1.00 eq  & 152.2 mmol & 15.24 g & 16.0 ml\\
+Phosphorsäure (85\%)& 0.50 eq  & 76.74 mmol &  7.52 g &  5.3 ml\\
+\end{tabular}
+
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+
+\section{Durchführung\cite{organikum}} 
+In einem 100 ml-Dreihalskolben, der an eine Destillationsapparatur angeschlossen war, wurden 16.0 ml (152.2 mmol) Cyclohexanol mit 5.3 ml (76.74 mmol) Phosphorsäure (85\% in Wasser) vorgelegt. 
+Die Vorlage wurde mittels eines Eisbades auf 0 \si{\celsius} gekühlt. Das Reaktionsgemisch wurde destillativ aufgereinigt. Das Rohprodukt wurde bei einer Kopftemperatur von 83 \si{\celsius} erhalten.
+Da im Rohprodukt Wasser vorhanden war, wurde dieses zunächst im Scheidetrichter entfernt. Die organische Phase wurde über Magnesiumsulfat getrocknet. Der Feststoff wurde abfiltriert. Das Produkt wurde als klare farblose Flüssigkeit erhalten.
+
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+ 12.500 g (152.16 mmol) =  & 100\%\\
+  8.397 g (102.21 mmol) =  & 67 \% (Lit.\cite{organikum} : 80 \%)   \\
+ \end{tabular}
+
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+
+\section{Physikalische Daten des Produktes} 
+\textit{Cyclohexen} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Siedepunkt} & & Brechungsindex  \\
+   Lit. \cite{organikum} : & $ 83 \,^{\circ}\mathrm{C} $ & & Lit.\cite{organikum}: & n$_{D}$$^{20}$ = 1.4465  \\
+   Exp.:               & $ 83 \,^{\circ}\mathrm{C} $ & & Exp.: & n$_{D}$ $^{21}$ = 1.4480 \\
+    & & & Umr.: & n$_{D}$$^{20}$ = 1.4460 \\  
+  \end{tabular}
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (NaCl, flüssig): $\tilde{\nu}$ = 3022 ( =C-H Valenz-Schwingung, -C=C-),
+2925, 2858, 2838 ( -C-H Valenz-Schwingung, -\ce{CH2}-), 1652 ( -C=C Valenz-Schwingung, -C=C-) , 1437 ( -C-H Deformation-Schwingung, -\ce{CH2}-) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = true ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+
+\begin{minipage}[b]{0.90\textwidth} 
+
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = \val{1.57}--\val{1.65}  (m, \#{4}, \pos{4}, \pos{5}), \val{1.85}--\val{2.01}  (m, \#{4}, \pos{3}, \pos{6}), \val{5.60}--\val{5.80} (m, \#{2}, \pos{1}, \pos{2}) ppm.
+  \end{minipage}
+  \hfill
+\begin{minipage}[t][][b]{0.10\textwidth} 
+
+\chemfig[][scale=.7]{*6((!\nobond\chembelow[1ex]{}{5})-(!\nobond\chembelow[1ex]{}{4})-(!\nobond\chembelow[1ex]{}{3})-(!\nobond\chemabove[1ex]{}{2})=(!\nobond\chemabove[1ex]{}{1})-(!\nobond\chemabove[1ex]{}{6})-)}
+  \end{minipage}
+\end{experimental}
+%   \val{2.11}  (s, \J(2;CH)[Hz]{ 2.07 }, \#{2}, H-2, \pos{2}), 
+
+%\hangindent=4cm
+
+
+\section{Mechanismus\cite{bio}} 
+Die Reaktion von Cyclohexanol \textbf{(1)} mit Phosphorsäure verläuft in zwei Schritten. In dem ersten Schritt wird die Hydroxylgruppe protoniert. Dabei entsteht das Oxonium-Ion \textbf{2}. Danach wird das \ce{H2O}-Molekül abgespalten und so wird ein Carbeniumion \textbf{3} erzeugt. Es wird im zweiten Schritt durch die Abspaltung eines Protons in \alpha-Position zur Ladung entsteht eine C=C-Doppelbindung \textbf{4}. 
+     
+\section{Abfallentsorgung}
+
+Die wässrige Phase wurde nach einer \pH-Wertbestimmung im Behälter für saure Abfälle entsorgt.  Das Trocknungsmittel und das Filterpapier wurde in den Feststoffbehälter gegeben. 
+
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt,  K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum},  21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 275. 
+\bibitem{bio}
+A. Gossauer, \textit{Einführung in der Organische Chemie}, 1. Aufl., Wiley-VCH, Zurich \textbf{2006}, S. 203.
+\end{thebibliography}
+
+\end{onehalfspace}
+\end{document}

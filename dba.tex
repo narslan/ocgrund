@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{24.06.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+\begin{document}
+
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Aldol-Reaktion}} 
+
+%Gruppen
+\setarrowdefault{,1.5,,thick}
+\setatomsep{2em}
+\definesubmol{phenyl}{\chemfig{*6(-=-=-=)}}
+\scalebox{.9}{
+\schemestart
+\mbox{\chemfig[][yshift=3pt]{2\hspace{2pt}}}
+\chemname{\chemfig{*6(-=-(-(=[2]O)-[:-30]H)=-=)}}{\ce{C7H6O}\\ M = 106.12 \si{\gram\per\mole} \\\\ Benzaldehyd}
+\+{,,7pt}
+\chemname{\chemfig{H_3C-[:+30](=[2]O)-[:-30]CH_3}}{\ce{C3H6O}\\ M = 58.08 \si{\gram\per\mole} \\\\Aceton }
+%\chemname{\chemfig{!{diazo}}}{}*6(-=-(-C(12))=-=)}
+\arrow{->[\chemfig{MeOH}/\chemfig{KOH}][-\hspace{2px}\chemfig{2}\hspace{2px}\chemfig{H_2O}][20pt]}
+\chemname{\chemfig{*6(-=-(-=[:-30]-[:+30](=[2]O)-[:-30]=[:+30]-[:-30]*6(-=-=-=))=-=)}}{\ce{C17H14O}\\ M = 234.30 \si{\gram\per\mole} \\\\\iupac{Dibenzylidenaceton}}
+\schemestop
+}
+
+
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (21.29 mmol) \iupac{Dibenzylidenaceton} hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Benzaldehyd & 2.00 eq  & 60.82 mmol & 6.454 g & 6.15 ml\\
+Aceton  & 1.00 eq  & 30.41 mmol &  1.766 g & 2.24 ml\\
+KOH $^\ast$ & 0.10 eq  & 3.04 mmol & 0.171 g & 1.14 ml\\
+MeOH &   & &  & 13 ml\\
+\end{tabular}\\
+\footnotesize \textit{$^\ast$ 15\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+Zur Darstellung der \iupac{Dibenzylidenaceton} wurden in einem 250 ml-Dreihalskolben, ausgestattet mit Tropftrichter, Rückflusskühler und Innenthermometer, 6.15 ml (6.454 g, 60.82 mmol) Benzaldehyd, 2.24 ml (1.766g, 30.41 mmol) Aceton und 13 ml Methanol vorgelegt. Im Anschluss wurde das Kaliumhydroxid unter gutem Rühren über den Tropftrichter zu der Lösung getropft. Es fiel dabei ein gelber Feststoff aus. Die Suspension wurde noch 3 Stunden weitergerührt. Es wurde darauf geachtet, dass die Reaktionstemperatur zwischen 20 - 25 \si{\celsius} blieb. Das Reaktionsgemisch wurde mit Essigsäure neutralisiert und mit Wasser gewaschen. Das Rohprodukt wurde über Magnesiumsulfat getrocknet, das Lösungsmittel am Rotationsverdampfer entfernt und das Rohprodukt aus Aceton kristallisiert. Das Produkt wurde als gelber Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  7.142 g (30.48 mmol) =  & 100 \%\\
+  0.460 g (1.96 mmol) =  & 6 \% (Lit.\cite{organikum} : 70 \%) \\
+ \end{tabular}
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{Dibenzylidenaceton} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt:} & &   \\
+   Lit. \cite{organikum} : & $ 111 \,^{\circ}\mathrm{C} $ & &  \\
+   Exp. :& $ 112 \,^{\circ}\mathrm{C} $ & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3053, 3027 (=C-H-Valenzschwingung), 1649 (C=O-Valenzschwingung), 1589 (C=C-Valenzschwingung) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+%\hspace{5mm}
+\begin{minipage}[b]{0.6\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\val{7.10} (d, $^{3\!}J = 15.9$ \si{\Hz}, \#{2}, \pos{1}),
+\val{7.43--7.45} (m, \#{4}, \pos{4}, \pos{6}),
+\val{7.63--7.76} (m, \#{6}, \pos{3}, \pos{5}, \pos{7}),
+\val{7.75} (d, $^{3\!}J = 15.9$ \si{\Hz}, \#{2}, \pos{2}) ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.40\textwidth} 
+\chemfig{*6((!\nobond\chembelow[1ex]{}{\textit{5}})-(!\nobond\chembelow[1ex]{}{\textit{4}})=(!\nobond\chembelow[1ex]{}{\textit{3}})-(-(!\nobond\chemabove[1ex]{}{\textit{2}})=[:-30](!\nobond\chembelow[1ex]{}{\textit{1}})-[:+30](=[2]O)-[:-30](!\nobond\chembelow[1ex]{}{\textit{1}'})=[:+30](!\nobond\chemabove[1ex]{}{\textit{2}'})-[:-30]*6(-(!\nobond\chembelow[1ex]{}{\textit{3}'})=(!\nobond\chembelow[1ex]{}{\textit{4}'})-(!\nobond\chembelow[1ex]{}{\textit{5}'})=(!\nobond\chemabove[1ex]{}{\textit{6}'})-(!\nobond\chemabove[0.75ex]{}{\textit{7}'})=))=(!\nobond\chemabove[1ex]{}{\textit{7}})-(!\nobond\chemabove[1ex]{}{\textit{6}})=)}
+\end{minipage}
+\end{experimental}
+
+\section{Mechanismus\cite{bio}}
+Im Zuge der Reaktion zum \iupac{Dibenzylidenaceton} (\textbf{8}) finden zwei Aldolreaktionen gemeinsam statt. Im ersten Schritt der ersten Aldolreaktion wird Aceton (\textbf{1}) unter der katalytischen Einwirkung der \fmch\ch{OH} in ein Enolat-Ion \textbf{2} umgewandelt. Das nucleophile Enolat-Ion greift das Carbonyl-Kohlenstoffatom des Benzaldehyds (\textbf{3}). Anschließend erfolgt die Übertragung eines Protons auf das Aldolat-Ion \textbf{4}. Es entsteht dabei \iupac{4-Hydroxy-4-phenyl-2-butanon (\textbf{5}}). In dem zweiten Schritt der Reaktion bildet sich zunächst durch die Deprotonierung des 4-Hydroxy-4-phenyl-2-butanons (\textbf{5}) das Enolat-Ion \textbf{6}, welches anschließend die OH-Gruppe abspaltet. Es entsteht dabei das Aldolprodukt \iupac{\E-4-Phenyl-3-buten-2-on} (\textbf{7}). Treibende Kraft der Wasserabspaltung ist die Bildung eines konjugierten Sytems bestehend aus C,C-Doppelbindung und Carbonylgruppe. Das Aldolprodukt \E-4-Phenyl-3-buten-2-on (\textbf{7}) reagiert mit Benzaldehyd (\textbf{3}) nach der oben beschriebenen Aldolreaktion, wobei die Enolat-Form \textbf{8} des \iupac{\E-4-Phenyl-3-buten-2-ons} (\textbf{7}) als Nukleophil fungiert. Es entseht im Anschluss  unter Wasserabspaltung \iupac{Dibenzylidenaceton} (\textbf{9}).
+\section{Abfallentsorgung}
+Die nach dem Waschen mit Wasser verbleibenden wässrigen Phasen wurden nach einer \pH-Wertbestimmung im Behälter für basische wässrige Abfälle entsorgt. Die nach Umkristallisation aus Aceton verbleibenden Lösungen wurde im Behälter für halogenfreie Kohlenwasserstoffe entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 521-522. 
+\bibitem{bio}
+J. Buddrus, \textit{Grundlagen der Organische Chemie}, 4. Aufl., De Gruyter, Berlin \textbf{2011}, S. 617-618.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

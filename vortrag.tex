@@ -1,0 +1,136 @@
+% Page Layout
+\documentclass[12pt]{beamer}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{chemfig}
+\usepackage{xcolor}
+%\documentclass[12pt]{article}
+%\usepackage[latin1]{}
+%\usepackage[T1]{fontenc}
+%\usepackage{fancyhdr}
+%\usepackage{chemfig}
+%\usepackage{sectsty}
+%\usepackage{setspace}
+%\usepackage{helvet}
+%\usepackage{graphicx}
+%\usepackage{overcite}
+%\usepackage{parskip}
+%\usepackage{siunitx}
+%\usepackage[version=3]{mhchem} 
+%\usepackage[method=mhchem]{chemmacros}
+%\usepackage{libertine}
+%\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+%\usepackage{hyperref}
+%\usepackage[a4paper]{geometry}
+%\usepackage{unicode-math}
+%\usepackage{microtype}
+%\usepackage{xcolor}
+%\usepackage{chemformula}
+\usetikzlibrary{positioning,calc,arrows}
+
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{microtype}
+\usepackage{fixltx2e}
+
+
+ % Avoid an error due to a lack of registers
+\renewcommand*\printatom[1]{{\fontsize{14}{14}\selectfont\ensuremath{\mathsf{#1}}}} 
+\definesubmol\cycleoplus{-[,0.25,,,draw=none]\oplus}
+\definesubmol{e}{-[,.1,,,draw=none]}
+\definesubmol\nobond{[,0.2,,,draw=none]}
+
+\definecolor{orange}{RGB}{255,127,0}
+%\include{head}
+\title[]{Aryl-Diazoniumionen und Azofarbstoffe}
+\author[N. Arslan]{Nevroz Arslan}
+\date[16.07.14]{16. Jul 2014}
+%\titlegraphic{\includegraphics[width=\textwidth,height=.5\textheight]{bogen1200.png}}
+\setbeamerfont{page number in head/foot}{size=\large}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+\setdoublesep{4pt}
+\setatomsep{2em}
+\definesubmol{e}{-[,.1,,,draw=none]}
+\begin{document}
+\setbeamercolor{block title}{use=structure,fg=black,bg=white}
+\setbeamercolor{block body}{use=structure,fg=black,bg=white}
+%\input{title.tex}
+
+
+
+
+%%%%%%%%%%%% Start of content %%%%%%%%%%%% 
+
+%\input{seite11.tex}
+\usebackgroundtemplate{
+   
+\includegraphics[width=1.0\paperwidth,height=0.17\paperheight]{bogen1200}
+\begin{tikzpicture}[overlay, remember picture]
+    \node[xshift=-10.80cm,yshift=1.15cm] at (0,0)    {\includegraphics[scale=0.6]{logo}};
+\end{tikzpicture}
+}
+\addtobeamertemplate{frametitle}{\vskip+5ex}{}
+\setbeamercolor{frametitle}{fg=black}
+
+
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+
+\frame{\titlepage}
+\begin{frame}
+  \frametitle{Inhaltsübersicht}
+  \tableofcontents
+  \end{frame}
+\section{Aryl-Diazoniumionen}
+\subsection{Definition}
+\input{a1.tex}
+\subsection{Synthese}
+\input{a2.tex}
+\subsection{Eigenschaften}
+\input{a3.tex}
+\section{Reaktionen}
+\input{seite2.tex}
+\subsection{Phenolverkochung}
+\input{seite3.tex}
+\input{seite4.tex}
+\subsection{Substitution durch Iod}
+\input{seite5.tex}
+\subsection{Schiemann-Reaktion}
+\input{seite10.tex}
+\subsection{Sandmeyer-Reaktion}
+\input{seite6.tex}
+\input{seite7.tex}
+\subsection{Gomberg-Bachmann Reaktion}
+\input{gomberg3.tex}
+\input{gomberg1.tex}
+\input{gomberg2.tex}
+\section{Azokupplung und Azofarbstoffe}
+\subsection{Überblick}
+\input{seite9.tex}
+\subsection{Mechanismus}
+\input{seite11.tex}
+\begin{frame}
+\begin{thebibliography}{}
+\bibitem{organikum}
+J. Martens, Mitschrift der Vorlesung Reaktionsmechanismen, \textbf{2014}
+\bibitem{bio}
+J. Buddrus, \textit{Grundlagen der Organische Chemie}, 4. Aufl., De Gruyter, Berlin \textbf{2011}, S. 693-700.
+\bibitem{march}
+M. Smith,J. March, \textit{March's Advanced Organic Chemistry}, 6. Aufl., Wiley, New York \textbf{2007}, S. 924-926.
+\end{thebibliography}
+\end{frame}
+
+%%\input{seite11.tex}
+
+%%%%%%%%%%%% End of content %%%%%%%%%%%%
+
+%\input{end.tex}
+
+%%%%%%%%%%%% Start of appendix %%%%%%%%%%%% 
+
+%%%%%%%%%%%% End of appendix %%%%%%%%%%%%
+
+\end{document}

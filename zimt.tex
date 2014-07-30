@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{03.07.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Knoevenagel Reaktion}} 
+%Gruppen
+\setarrowdefault{,1.5,,thick}
+\scalebox{.7}{
+%\schemedebug{true}
+\schemestart
+\chemname{\chemfig{*6(-=-(-(=[2]O)-[:-30]H)=-=)}}{\ce{C7H6O}\\ M = 106.12 \si{\gram\per\mole} \\\\ Benzaldehyd}
+\+{,,25pt}
+\chemname{\chemfig{HO-[:30](=[2]O)-[:-30]-[:30](=[2]O)-[:-30]OH}}{\ce{C3H4O4}\\ M = 104.06 \si{\gram\per\mole} \\\\Malonsäure}
+%\chemname{\chemfig{!{diazo}}}{}*6(-=-(-C(12))=-=)}
+\arrow{->[\chemname{\chemfig[][scale=0.8]{*6(-\chembelow{N}{H}-----)}}{\\ \ce{C5H11N}\\ M = 85.15 \si{\gram\per\mole} \\ Piperidin }][\chemname{\chemfig[][scale=0.8]{*6(-N=-=-=)}}{\\ \ce{C5H5N}\\ M = 79.10 \si{\gram\per\mole} \\ Pyridin}][30pt]}[,2]
+\chemname{\chemfig{*6(-=-(-=[:-30]-[:30](=[2]O)-[:-30]OH)=-=)}}{\ce{C9H8O2}\\ M = 148.16 \si{\gram\per\mole} \\\\\iupac{\E-3-Phenylpropensäure}}
+\schemestop
+}
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (33.75 mmol) \iupac{\E-3-Phenylpropensäure} hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Benzaldehyd & 1.00 eq  & 39.70 mmol & 4.210 g & 4.02 ml\\
+Malonsäure  & 1.20 eq  & 47.64 mmol & 4.960 g & \\
+Piperidin  & 0.10 eq & 3.97 mmol & 0.340 g & 0.40 ml\\
+Pyridin  &   & &  & 7.14 ml\\
+\end{tabular}\\[0.5cm]
+%\footnotesize \textit{$^\ast$ 50\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+In einem 250 ml-Dreihalskolben, ausgestattet mit Rückflusskühler und Blasenzähler, wurden zunächst 4.960 g (39.70 mmol) Malonsäure in 7.14 ml Pyridin vorgelegt. Dazu wurden 4.210 g (39.70 mmol) Benzaldehyd und 0.4 ml (0.340 g, 3.97 mmol) gegeben und zum Sieden erhitzt. Danach wurde die Lösung solange gerührt bis die dabei entstandene Kohlendioxidentwicklung beendet war. Nach dem Abkühlen wurde auf die Lösung ein Gemisch aus 20 ml Wasser und 20 ml Eiswasser gegossen. Es fiel dabei ein farbloser Feststoff. Die Suspension wurde im Kühlschrank gekühlt, abgesaugt und aus Ethanol/Wasser umkristallisert. Das Produkt wurde als farbloser Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  6.250 g (31.52 mmol) =  & 100 \%\\
+  0.620 g (3.12 mmol) =  &  9.8 \% (Lit.\cite{organikum} : 80 \%) \\
+ \end{tabular}
+%\newpage
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{\iupac{\E-3-Phenylpropensäure}} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{organikum} : &  134 \si{\celsius}  & &  \\
+   Exp. :&  135 \si{\celsius} & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3115-2400 ( -O-H-Valenzschwingung), 1672,1612 ( -C=O-Valenzschwingung), 1494 ( -C=C-Valenzschwingung) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.65\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = \val{6.46} (d, $^{3\!}J = 15.9$ \si{\Hz}, \#{1}, \pos{3}),
+\val{7.31--7.45} (m, \#{5}, \pos{6}, \pos{7}, \pos{8}, \pos{9}, \pos{10}),
+\val{7.80} (d, $^{3\!}J = 15.9$ \si{\Hz},\#{1}, \pos{4}),
+\val{11.0} (s, \#{1}, \pos{1})
+ ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.40\textwidth} 
+\chemfig[][scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{8}})-(!\nobond\chembelow[1.5ex]{}{\textit{9}})=(!\nobond\chembelow[1.5ex]{}{\textit{10}})-(!\nobond\chemabove[1.5ex]{}{\textit{5}})(-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=[:-30](!\nobond\chembelow[1.5ex]{}{\textit{3}})-[:30]((!\nobond\chembelow[1.5ex]{}{\textit{2}})=[2]O)-[:-30]\chembelow{O}{\textit{1}}H)=(!\nobond\chemabove[1.5ex]{}{\textit{6}})-(!\nobond\chemabove[1.5ex]{}{\textit{7}})=)}
+\end{minipage}
+\end{experimental}
+\section{Mechanismus\cite{bio}}
+Der Mechanismus der Knoevenagel-Reaktion ähnelt dem der Aldol-Kondensation. In dem ersten Schritt der Reaktion wird die Methylengruppe der Malonsäure (\textbf{1}) 
+durch Pyridin (\textbf{2}) deprotoniert. Das dadurch entstehende nukleophile Enolat-Anion greift das Carbonyl-Kohlenstoffatom des Benzaldehyds (\textbf{2}) an. Es bildet sich dabei ein Alkoholat \textbf{5}, das anschließend protoniert und unter Wasserabspaltung in eine instabile \chemalpha,\chembeta -ungesättigte Carbonsäure \textbf{7} umgewandelt wird. Im Anschluss entsteht unter Abspaltung des Kohlendioxids  \iupac{\E-3-Phenylpropensäure} (\textbf{2}).
+
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 528. 
+\bibitem{bio}
+J. Buddrus, \textit{Grundlagen der Organische Chemie}, 4. Aufl., De Gruyter, Berlin \textbf{2011}, S. 635.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

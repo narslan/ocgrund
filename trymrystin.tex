@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage[stretch=10,shrink=10]{microtype}
+
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{02.06.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Isolierung von Trimyristin aus Muskatnuss} 
+\setarrowdefault{,0.6,}
+\definesubmol{x}{-[:+30]-[:-30]}
+\definesubmol{m}{-[:+30](!\nobond\chemabove[1ex]{}{2'})-[:-30](!\nobond\chembelow[1ex]{}{2'})}
+\definesubmol{n}{-[:+30](!\nobond\chemabove[1ex]{}{2''})-[:-30](!\nobond\chembelow[1ex]{}{2''})}
+\definesubmol{i}{-[:+30](!\nobond\chemabove[1ex]{}{2'})-[:-30](!\nobond\chembelow[1ex]{}{2})-[:+30]CH_3(!\nobond\chemabove[2ex]{}{1})}
+\definesubmol{j}{-[:+30](!\nobond\chemabove[1ex]{}{2''})-[:-30](!\nobond\chembelow[1ex]{}{2''})-[:+30]CH_3(!\nobond\chemabove[2ex]{}{1''})}
+%3.Zweig
+\definesubmol{n1}{-[:+30](!\nobond\chemabove[1ex]{}{11''})-[:-30](!\nobond\chembelow[1ex]{}{10''})}
+\definesubmol{n2}{-[:+30](!\nobond\chemabove[1ex]{}{9''})-[:-30](!\nobond\chembelow[1ex]{}{8''})}
+\definesubmol{n3}{-[:+30](!\nobond\chemabove[1ex]{}{7''})-[:-30](!\nobond\chembelow[1ex]{}{6''})}
+\definesubmol{n4}{-[:+30](!\nobond\chemabove[1ex]{}{5''})-[:-30](!\nobond\chembelow[1ex]{}{4''})}
+\definesubmol{n5}{-[:+30](!\nobond\chemabove[1ex]{}{3''})-[:-30](!\nobond\chembelow[1ex]{}{2''})}
+
+%2.Zweig
+\definesubmol{i1}{-[:+30](!\nobond\chemabove[1ex]{}{10'})-[:-30](!\nobond\chembelow[1ex]{}{9'})}
+\definesubmol{i2}{-[:+30](!\nobond\chemabove[1ex]{}{8'})-[:-30](!\nobond\chembelow[1ex]{}{7'})}
+\definesubmol{i3}{-[:+30](!\nobond\chemabove[1ex]{}{6'})-[:-30](!\nobond\chembelow[1ex]{}{5'})}
+\definesubmol{i4}{-[:+30](!\nobond\chemabove[1ex]{}{4'})-[:-30](!\nobond\chembelow[1ex]{}{3'})}
+
+
+
+%1.Zweig
+\definesubmol{k1}{-[:+30](!\nobond\chemabove[1ex]{}{11})-[:-30](!\nobond\chembelow[1ex]{}{10})}
+\definesubmol{k2}{-[:+30](!\nobond\chemabove[1ex]{}{9})-[:-30](!\nobond\chembelow[1ex]{}{8})}
+\definesubmol{k3}{-[:+30](!\nobond\chemabove[1ex]{}{7})-[:-30](!\nobond\chembelow[1ex]{}{6})}
+\definesubmol{k4}{-[:+30](!\nobond\chemabove[1ex]{}{5})-[:-30](!\nobond\chembelow[1ex]{}{4})}
+\definesubmol{k5}{-[:+30](!\nobond\chemabove[1ex]{}{3})-[:-30](!\nobond\chembelow[1ex]{}{2})}
+
+
+\definesubmol{y}{O-[:+30,0.6](=[2,0.6]O)-[:-30,0.6](!x!x!x!x!x!x!x!x)}
+%\chemfig{[2]([0]!y)-[,1.5]([0]!y)-[,1.5]([0]!y)}
+\chemname{\chemfig{[,0.6](-[:-30](!x!x!x!x!x-[:+30]CH_3))(-[2](=[:+150]O)-[:+30]O(-[2]-[:+30]([:-30]-O-[:+30](=[2]O)-!x!x!x!x!x!x!-{CH_3})(-[2]-[:+150]O-[2](=[:+150]O)(!x!x!x!x!x!x-[:+30]CH_3))))}}{\\ \ce{C45H86O6}\\ M = 723.04 \si{\gram\per\mole} \\\\ \iupac{Tetradecansäure\-1,2,3\-propantriylester}}
+
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollte Trimyristin aus 25.000 g gemahlener Muskatnuss extrahiert werden. \\[0.5cm]
+\begin{tabular}{lrrrr}
+Muskatnusspulver	&   &  & 25.000 g & \\
+Dichlormethan  &  &   469.97 mmol &  & 300 ml\\
+Ethanol  &  & 513.78 mmol &  & 300 ml\\
+\end{tabular}
+
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+
+\section{Durchführung \cite{stahl}} 
+25.000 g Muskatnusspulver wurden in einem 500 ml-Dreihalskolben mit Dichlormethan versetzt. Der Kolben wurde zunächst 2 Stunden unter Rückfluss auf 50 \si{\celsius} erhitzt. Die Suspension wurde filtriert und der Filterrückstand mit 50 ml Dichlormethan nachgewaschen. Das braune Filtrat wurde im Anschluss am Rotationsverdampfer eingeengt. Nach Zugabe von 50 ml Ethanol wurde das Rohprodukt/Ethanol-Gemisch auf 60 \si{\celsius} erhitzt. Die entstandene Lösung wurde mittels eines Eisbads auf 0 \si{\celsius} heruntergekühlt. Nach kurzem Stehenlassen fiel eine feste Masse des Rohproduktes aus. Die so entstandene milchig-trübe klebrige Kristallmasse wurde abgesaugt. Das farblose feste Filtrat wurde im Anschluss am Rotationsverdampfer noch mal getrocknet. Das Produkt Trimyristin wurde als farbloser Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+ 5.140 g (7.10 mmol) =   20.5 \% $^\ast$\\
+ \end{tabular}\\[0.5cm]
+\footnotesize \textit{$^\ast$ In Bezug auf die Masse der eingesetzte Muskatnuss}
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\normalsize \section{Physikalische Daten des Produktes} 
+\textit{Trimyristin} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{stahl} : &  56-57 \si{\celsius}  & &  \\
+   Exp. :&  56 \si{\celsius} & &  \\
+ \end{tabular}
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 
+2919, 2850 ( -CH$_3$-Valenzschwingung ), 1735 ( -C=O-Valenzschwingung), 1471, 1391 ( -CH$_3$-Deformationsschwingung), 1273, 1294 ( -CH$_2$- Deformationsschwingung), 1201, 1179, 1112 (-C-O- Valenzschwingung und C-CO-O-Gerüstschwingung), 717 ( -CH$_2$-Schaukelschwingung) cm$^{-1}$.\\
+\pagebreak
+%\data{IR}[NaCl] \val{2935} (w), \val{3061} (w)
+   %\val{2.01} (s, \#{24}, \pos{5}), \val{2.31} (s, \#{12},9 \pos{1}),
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+%1H NMR (300 MHz, CDCl3) δ 7.19 (s, 1H), 5.20 (s, 2H), 4.15 (ddd, J = 17.9, 11.9, 5.1, 4H), 2.24 (t, J = 7.5, 6H), 1.54 (s, 7H), 1.34 – 0.17 (m, 67H).
+
+%\J(1)[Hz]{45.1}, \J(2)[Hz]{11.9},\J(3)[Hz]{31.8}, 
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = \val{0.88} (t, $^{3\!}J = 6.5$ \si{\Hz}, \#{9}, \pos{1}), \val{1.22--1.26} (m, \#{60}, \pos{2}, \pos{3}, \pos{4}, \pos{5}, \pos{6}, \pos{7}, \pos{8}, \pos{9}, \pos{10}, \pos{11}), \val{1.59--1.63} (m, \#{6}, \pos{12}), \val{2.28--2.35}  (m, \#{6}, \pos{13}), \val{4.14} (dd, $^{2\!}J = 11.9$ \si{\Hz}, $^{3\!}J = 5.9$ \si{\Hz}, \#{2}, \pos{14}), \val{4.29} (dd, $^{2\!}J = 11.9$ \si{\Hz}, $^{3\!}J = 4.3$ \si{\Hz}, \#{2}, \pos{14}), \val{5.25--5.28} (m, \#{1}, \pos{15}) ppm.\\[1cm]
+
+%\definesubmol{x}{-[:+30]-[:-30]}
+%\definesubmol{m}{-[:+30](!\nobond\chemabove[1ex]{}{2'})-[:-30](!\nobond\chembelow[1ex]{}{2'})}
+%\definesubmol{n}{-[:+30](!\nobond\chemabove[1ex]{}{2''})-[:-30](!\nobond\chembelow[1ex]{}{2''})}
+%\definesubmol{i}{-[:+30](!\nobond\chemabove[1ex]{}{2'})-[:-30](!\nobond\chembelow[1ex]{}{2})-[:+30]CH_3(!\nobond\chemabove[2ex]{}{1})}
+%\definesubmol{j}{-[:+30](!\nobond\chemabove[1ex]{}{2''})-[:-30](!\nobond\chembelow[1ex]{}{2''})-[:+30]CH_3(!\nobond\chemabove[2ex]{}{1''})}
+
+
+
+% Molekül
+\chemfig{[,0.6](-[:-30](!\nobond\chembelow[1ex]{}{12''})(!{n1}!{n2}!{n3}!{n4}!{n5}-[:+30]CH_3(!\nobond\chemabove[1.5ex]{}{1''})))(-[2](!\nobond\chembelow[6ex]{}{13''})(=[:+150]O)-[:+30]O(-[2](!\nobond\chemabove[1.5ex]{}{14'})-[:+30](!\nobond\chembelow[2ex]{}{15})([:-30]-O-[:+30]([2]=O)-[:-30](!\nobond\chembelow[1ex]{}{13'})-[:+30](!\nobond\chemabove[1ex]{}{12'})-[:-30](!\nobond\chembelow[1ex]{}{11'})!{i1}!{i2}!{i3}!{i4}-[:+30](!\nobond\chemabove[1ex]{}{2'})-[:-30]CH_3(!\nobond\chemabove[2ex]{}{1'}))(-[2](!\nobond\chemabove[1ex]{}{14})-[:+150]O-[2](=[:+150]O)(-[:+30](!\nobond\chemabove[1ex]{}{13})-[:-30](!\nobond\chembelow[1ex]{}{12})!{k1}!{k2}!{k3}!{k4}!{k5}-[:+30]CH_3(!\nobond\chemabove[2ex]{}{1})))))}
+\end{experimental}
+
+\section{Abfallentsorgung}
+Der Muskatnussrückstand wurde im Behälter für Feststoffabfälle entsorgt. Das mittels Rotationsverdampfer abgetrennte Lösungsmittel wurde in dem Behälter für halogenhaltige Kohlenwasserstoffe entsorgt. Die nach Kristallisation mit Ethanol verbleibenden Lösungen wurde im Behälter für halogenfreie Kohlenwasserstoffe entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{stahl}
+ E. Stahl, W. Schild, \textit{Isolierung und Charakterisierung von Naturstoffen}, 1. Aufl., Gustav Fischer Verlag, Stuttgart \textbf{1986}, S. 165.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

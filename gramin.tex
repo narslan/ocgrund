@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+% you can delete this line if you don't use libertine with oldstyle figures:
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{11.06.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Mannich Reaktion}} 
+
+%Gruppen
+\definesubmol{diazo}{\chemfig{*6((-O_2N)-=-(-\chemabove[0.5pt]{N}{\scriptstyle\oplus}~N)=-=)}}
+\definesubmol{wdiazo}{\chemfig{*6((-O_2N)-=-(-N=N)=-=)}}
+\definesubmol{betanaphtol}{\chemfig{*6(=-*6(-=-(-OH)=-)=-=-)}}
+\setarrowdefault{,1.5,,thick}
+\begin{center}
+\scalebox{.8}{
+%\schemedebug{true}
+\schemestart	
+\chemname{\chemfig[][]{*6(-=*5(-\chembelow{N}{H}-=-)-=-=)}}{\ce{C8H7N}\\ M = 117.15 \si{\gram\per\mole} \\\\ Indol}
+%\arrow(.east--.south west){0}[,0]
+\+{,,7pt}
+\chemname{\chemfig[]{H-[:+30,0.8](=[2,0.7]O)-[:-30,0.7]H}}{\ce{CH_2O}\\ M = 30.03 \si{\gram\per\mole} \\\\ Formaldehyd}
+\+{,,7pt}
+\chemname{\chemfig[]{H_3C-[:+30,0.8]N(-[2,0.7]H)-[:-30,0.7]CH_3}}{\ce{C2H7N}\\ M = 45.08 \si{\gram\per\mole} \\\\ Dimethylamin}
+%\chemfig[yshift=-5mm][]{H_3C(-[:60,0.7]{NH}(-[:120,0.7]H_3C))}
+%\arrow{->[][-\chemfig{H_2O}]}
+\arrow(.mid east--[yshift=1pt]){->[\chemfig{AcOH}][-\chemfig{H_2O}]}
+%\arrow{->[\chemfig{AcOH}][-\chemfig{H_2O}]}
+\chemname{\chemfig{*6(-=*5(-\chembelow{N}{H}-=(-[:72,0.7](-[:18,0.8]N(-[:42,0.7]CH_3)(-[:-42,0.7]CH_3)))-)-=-=)}}{\ce{C11H14N2}\\ M = 174.24 \si{\gram\per\mole}\\\\\iupac{3\-(Dimethylaminomethyl)indol}}
+\schemestop
+}
+\end{center}
+
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (28.70 mmol) \iupac{3\-(Dimethylaminomethyl)indol} hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Indol & 1.00 eq  & 29.28 mmol & 3.430 g & \\
+Dimethylamin$^\ast$  & 1.00 eq  & 29.28 mmol &  1.320 g & 3.28 ml\\
+Formaldehyd  & 1.00 eq & 29.28 mmol & 0.880 g & 1.07 ml\\
+Essigsäure  & 2.33 eq  & 68.23 mmol& 4.100 g & 3.98 ml\\
+\end{tabular}\\[0.5cm]
+\footnotesize \textit{$^\ast$ 50\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+Zur Darstellung des Imminiumions wurde in einem 100 ml-Dreihalskolben, ausgestattet mit Thermometer und Rückflusskühler, 1.07 ml (0.880 g, 29.28 mmol) Formaldehyd und 3.28 ml (1.320 g, 29.28 mmol) Dimethylamin  vorgelegt und mittels eines Eisbads auf 0 \si{\celsius} gekühlt. Dazu wurde 4.28 ml (4.100 g, 68.23 mmol) Essigsäure und 3.430 g \mbox{(29.28 mmol)} Indol gegeben. Das entstandene trübe braune Reaktionsgemisch wurde nach einigen Minuten klarer. Das Reaktiongemisch wurde über Nacht im Eisbad gerührt. Im Anschluss wurde zwei Stunden bei Raumtemperatur weitergerührt. Zur Freisetzung des freien Amins aus seinem Salz wurde das Reaktionsgemisch in einem 500 ml-Rundkolben mit 100 ml Natronlauge (10 \si{\percent}) umgesetzt. Es fiel dabei eine Feststoff aus. Der voluminöse farblose Niederschlag wurde über einen Büchnertrichter abgesaugt und aus Aceton/Hexan umkristallisiert. Das Produkt wurde in Form eines rosa farbenen Feststoffs erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  5.100 g (29.28 mmol) =  & 100 \%\\
+  1.980 g (11.36 mmol) =  & 38 \% (Lit.\cite{organikum} : 98 \%) \\
+ \end{tabular}
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{Gramin} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{organikum} : & $ 134 \,^{\circ}\mathrm{C} $ & &  \\
+   Exp. :& $ 136 \,^{\circ}\mathrm{C} $ & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3490 ( -N-H-Valenzschwingung), 3097 ( -C-H-Valenzschwingung, Aromat), 2962 ( -C-H-Valenzschwingung, Alkan), 1450 ( -C=C-Valenzschwingung, \mbox{Aromat}), 1239 ( -C-N-Valenzschwingung, Amin) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.70\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\val{2.29} (s, \#{6}, \pos{12}, \pos{13}),
+\val{3.63} (s, \#{2}, \pos{10}),
+\val{7.12--7.39} (m, \#{5}, \pos{2}, \pos{5}, \pos{6}, \pos{7}, \pos{8}),\hspace{5mm}
+\val{7.73} (d, $^{3\!}J = 6.6$ \si{\Hz}, \#{1}, \pos{1}) ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.30\textwidth} 
+
+\chemfig[][scale=0.8]{*6((!\nobond\chembelow[1ex]{}{\textit{7}})-(!\nobond\chembelow[1ex]{}{\textit{8}})=(!\nobond\chembelow[1ex]{}{\textit{9}})*5(-\chembelow{N}{H}(!\nobond\chembelow[3ex]{}{\textit{1}})-(!\nobond\chembelow[2ex]{}{\textit{2}})=(!\nobond\chemabove[0.1mm]{}{\hspace{5mm}\textit{3}})(-[:72,0.7]((!\nobond\chemabove[1ex]{}{\textit{10}})-[:18,0.8]N(!\nobond\chemabove[3ex]{}{\textit{11}})(-[:42,0.7]CH_3(!\nobond\chemabove[2ex]{}{\textit{12}}))(-[:-42,0.7]CH_3(!\nobond\chembelow[1ex]{}{\textit{13}}))))-)-(!\nobond\chemabove[1ex]{}{\textit{4}})=(!\nobond\chemabove[1ex]{}{\textit{5}})-(!\nobond\chemabove[1ex]{}{\textit{6}})=(!\nobond\chembelow[3ex]{}{\textit{1}}))}
+\end{minipage}
+\end{experimental}
+
+\section{Mechanismus\cite{bio}}
+Die Reaktion läuft in zwei Schritten ab. Im ersten Schritt der Reaktion bildet sich aus Formaldehyd \textbf{(1)} und dem Dimethylamin \textbf{(2)} ein Imminiumion \textbf{6}. In diesem Schritt erfolgt zunächst ein nucleophiler Angriff des Dimethylamins \textbf{(2)} am Carbonyl-C-Atom des Formaldehyds \textbf{(1)}. Hierbei bildet sich eine dipolare Zwischenstufe \textbf{3} und daraus ein geminaler Aminoalkohol \textbf{4}. Letztere Verbindung wird protononiert. Es entsteht durch Abspaltung von Wasser das Iminiumion \textbf{6}. Im zweiten Schritt der Reaktion findet eine elektrophile Substitution am Indol statt. Das elektrophile \mbox{Iminiumion \textbf{6}} addiert sich dementsprechend am Indol \textbf{(7)}.
+Das entstandene Carbeniumion \textbf{8} wird im Anschluss unter der Abspaltung des Protons in \mbox{\iupac{3\-(Dimethylaminomethyl)indol}} \textbf{(9)} umgewandelt, wobei das Aromatensystems des Indolringes zurückgesetzt wird.
+\section{Abfallentsorgung}
+Die nach dem Waschen mit verdünnter Natronlauge und Wasser verbleibenden wässrigen Phasen wurden im Behälter für basische wässrige Lösungsmittelabfälle entsorgt. Die nach Umkristallisation aus Aceton/Hexan verbleibenden Lösungen wurde im Behälter für halogenfreie Kohlenwasserstoffe entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 532. 
+\bibitem{bio}
+J. Buddrus, \textit{Grundlagen der Organische Chemie}, 4. Aufl., De Gruyter, Berlin \textbf{2011}, S. 489.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

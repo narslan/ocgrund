@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{29.06.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setdoublesep{4pt} 
+\begin{document}
+\begin{onehalfspace}
+
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Grignard Reaktion}} 
+%Gruppen
+\setarrowdefault{,1.5,,thick}
+{\footnotesize Darstellung des Grignard-Reagenzes:}\\[0.3cm]
+\scalebox{.8}{
+\schemestart
+\chemname{\chemfig{*6(-=-(-Br)=-=)}}{\ce{C6H5Br}\\ M = 157.01 \si{\gram\per\mole} \\\\ Brombenzol}
+\arrow{->[\chemfig{Mg}][\chemfig{Et_2O}][30pt]}
+\chemname{\chemfig{*6(-=-(-MgBr)=-=)}}{\ce{C6H5MgBr}\\ M = 181.31 \si{\gram\per\mole} \\\\Benzylmagnesiumbromid }
+\schemestop 
+}\\[0.2cm]
+{\footnotesize Reduktion von Acetophenon:}\\[0.3cm]
+\scalebox{.8}{
+\schemestart
+\chemname{\chemfig{*6(-=-(-(=[2]O)-[:-30])=-=)}}{\ce{C8H8O}\\ M = 120.15 \si{\gram\per\mole} \\\\ Acetophenon}
+\+
+\chemname{\chemfig{*6(-=-(-MgBr)=-=)}}{\ce{C6H5MgBr}\\ M = 181.30 \si{\gram\per\mole} \\\\Benzylmagnesiumbromid }
+%\chemname{\chemfig{!{diazo}}}{}*6(-=-(-C(12))=-=)}
+\arrow{->[\chemfig{H_2O}][][]}
+\chemname{\chemfig{*6(-=-(-(-[:110]{HO})(-[:-110])-[:-30](*6(-=-=-=)))=-=)}}{\ce{C14H10O}\\ M = 198.26 \si{\gram\per\mole} \\\\\iupac{1,1-Diphenylethanol}}
+\schemestop
+}
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (25.22 mmol) \iupac{1,1-Diphenylethanol} hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Brombenzol & 1.25 eq  & 39.40 mmol & 6.190 g & 4.13 ml\\
+Mg  & 1.25 eq  & 39.40 mmol &  0.960 g & \\
+Acetophenon  & 1.00 eq & 31.52 mmol & 3.790 g & 3.67 ml\\
+abs. Ether &   & &  & 60 ml\\
+\end{tabular}\\[0.5cm]
+%\footnotesize \textit{$^\ast$ 50\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+Zur Darstellung der Grignard-Reagenz wurde zunächst ein 250 ml-Dreihalskolben, ausgestattet mit Tropftrichter und Rückflusskühler, ausgeheizt und mit Inertgasgegenstrom gespült. Im Anschluss wurden 0.960 g (39.40 mmol) Magnesiumspäne mit 10 ml absolutem Ether überschichtet. Der Tropftrichter wurde mit 4.13 ml (6.190 g, 39.40 mmol) Brombenzol gefüllt und 1/20 des Brombenzols zunächst dem Reaktionsmedium hinzugegeben. In einigen Minuten startete die Umsetzung. Dies war am Sieden des Ethers und an der Wärmeentwicklung zu erkennen. Der Rest des Brombenzols wurde in etwa 10 ml Ether gelöst und vorsichtig zugetropft. Nach dem Eintropfen wurde die dunkle Reaktionslösung so lange gerührt, bis das Magnesium nahezu abreagiert hatte. Im Anschluss wurden 3.67 ml (3.790 g, 31.52 mmol) Acetophenon, das in etwa 5 ml Ether gelöst war, zugetropft und zwei Stunden gerührt. Nach Beendigung des Rührens wurde auf das Reaktionsgemisch zerstoßenes Eis gegossen. Es bildeten sich sofort zwei Phasen, wobei die Aufschwemmung eines gelben Feststoffs zu beobachten war. Im Anschluss wurde zur dieser Suspension gesättigten Ammoniumchlorid-Lösung hinzugegeben, bis sich der entstandene Niederschlag löste. Die organische Phase wurde über einen Scheidetrichter abgetrennt und mit gesättigtem Natriumhydrogensulfit, Hydrogencarbonatlösung und Wasser gewaschen, über Magnesiumsulfat getrocknet, am Rotationsverdampfer eingeengt und aus Hexan kristallisiert. Das Produkt wurde als farbloser Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  6.250 g (31.52 mmol) =  & 100 \%\\
+  0.620 g (3.12 mmol) =  &  9.8 \% (Lit.\cite{organikum} : 80 \%) \\
+ \end{tabular}
+\newpage
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{\iupac{1,1-Diphenylethanol}} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{alpha} : &  78 - 82 \si{\celsius}  & &  \\
+   Exp. :&  76 \si{\celsius} & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3400 ( -O-H-Valenzschwingung), 3056 ( =C-H-Valenzschwingung, Aromat), 2995, 2977 ( -C-H-Valenzschwingung, Alkan), 1493 ( -C=C-Valenzschwingung, Aromat) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.60\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\val{1.98} (s, \#{3}, \pos{2}),
+\val{2.18} (s, \#{1}, \pos{1}),
+\val{7.31--7.45} (m, \#{10}, \pos{3}, \pos{4}, \pos{5}, \pos{6}, \pos{7}, \pos{3$'$}, \pos{4$'$}, \pos{5$'$}, \pos{6$'$}, \pos{7$'$}) ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.40\textwidth} 
+\chemfig[][scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{5}})-(!\nobond\chembelow[1ex]{}{\textit{6}})=(!\nobond\chembelow[1ex]{}{\textit{7}})-(!\nobond\chemabove[10ex]{}{\textit{1}})(-(-[:110]{HO})(-[:-110](!\nobond\chembelow[1.5ex]{}{\textit{2}}))-[:-30](*6(-(!\nobond\chembelow[1.5ex]{}{\textit{7}'})=(!\nobond\chembelow[1.5ex]{}{\textit{6}'})-(!\nobond\chembelow[1.5ex]{}{\textit{5}'})=(!\nobond\chemabove[1.5ex]{}{\textit{4}'})-(!\nobond\chemabove[1ex]{}{\textit{3}'})=)))=(!\nobond\chemabove[1ex]{}{\textit{3}})-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=)}
+
+\end{minipage}
+\end{experimental}
+
+\section{Mechanismus\cite{bio}\cite{sig}}
+Die Grignard-Reaktion läuft in zwei Schritten ab. Im ersten Schritt der Reaktion bildet sich in Ether (\textbf{3}) aus Brombenzol (\textbf{1}) und Magnesium (\textbf{2}) das Benzylmagnesiumbromid (\textbf{4}). Die Bildungsreaktion der Grignard-Reagenz verläuft über Alkylradikale. 
+Das Verhalten des Benzylmagnesiumbromids in Ether (\textbf{3}) wird anhand des Schlenk-Gleichgewichtes beschrieben. Nach Schlenk besteht ein Gleichgewicht zwischen dem Phenylmagnesiumbromid (\textbf{4}) einerseits sowie der Diphenylmagnesiumverbindung \textbf{5} und dem Magnesiumbromid (\textbf{6}) andererseits. Dieses Gleichgewicht liegt weitgehend auf der linken Seite. In dem zweiten Schritt verläuft die Reaktion als eine nucleophile Addition des Benzyl-Anions an das positive Kohlenstoffatom des Acetophenons (\textbf{7}), während sich das Kation MgBr an das negative O-Atom des Acetophenons (\textbf{7}) anlagert. Diese Anlagerung findet innerhalb eines cyclischen Komplexes statt \textbf{8}. Das entstandene Magnesiumalkoholat \textbf{9} wird anschließend hydrolysiert. Es entsteht dabei \iupac{1,1-Diphenylethanol} (\textbf{10}).
+\section{Abfallentsorgung}
+Die nach dem Waschen mit verdünnter Natronlauge und Wasser verbleibenden wässrigen Phasen wurden im Behälter für basische wässrige Lösungsmittelabfälle entsorgt. Die nach Umkristallisation aus Aceton/Hexan verbleibenden Lösungen wurden im Behälter für halogenfreie Kohlenwasserstoffe entsorgt.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+H. Becker, W. Berger, G. Domschke, E. Fanghänel, J. Faust, M. Fischer, F. Gentz, K. Gewald, R. Gluch, R. Mayer, K. Müller, D. Pavel, H. Schmidt, K. Schollberg, K. Schwetlick, E. Seiler, G. Zeppenfeld, R. Beckert, G. Domschke, W. Habicher, P. Metz, \textit{Organikum}, 21. Aufl., Wiley-VCH, Weinheim \textbf{2009}, S. 563. 
+\bibitem{bio}
+W. Kunz, H. Krauch, E. Nonnenmacher, \textit{Reaktionen Der Organischen Chemie}, 6. Aufl., Wiley-VCH, Weinheim \textbf{1997}, S. 507.
+\bibitem{sig}
+S. Hauptmann, \textit{Organischen Chemie}, 1. Aufl., Verlag Harri, Frankfurt \textbf{1985}, S. 545.
+\bibitem{alpha}
+\url{http://www.alfa.com/en/GP100W.pgm?DSSTK=B22376} (Stand: 29.06.2014).
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}

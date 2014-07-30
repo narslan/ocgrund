@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage[latin1]{}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{overcite}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem} 
+\usepackage[method=mhchem]{chemmacros}
+\usepackage{libertine}
+\usepackage[scaled=.83]{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+
+% you can delete this line if you don't use libertine with oldstyle figures:
+\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+
+\definesubmol\nobond{[,0.2,,,draw=none]}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\pagestyle{fancy}
+\lhead{Nevroz Arslan }
+\rhead{13.07.2014}
+\setlength{\headheight}{15pt}
+
+\renewcommand\citeform[1]{[#1]}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
+\setatomsep{2em}
+\setcompoundsep{6em}
+\setdoublesep{3pt} 
+\definesubmol\tb{(-[::90])(-[::180])(-[::270])}
+\definesubmol\ta{(-)(-[:90])(-[:-90])}
+\begin{document}
+\begin{onehalfspace}
+%[,0.2,,,draw=none]
+%\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
+\section{Reaktionstyp: \textnormal{Friedel-Crafts-Alkylierung}} 
+%Gruppen
+\setarrowdefault{,1.5,,thick}
+\scalebox{.8}{
+%\schemedebug{true}
+\schemestart
+\chemname{\chemfig{[:-30]*6(=-=(-*6(=-=-=-))-=-)}}{\ce{C12H10}\\ M = 154.21 \si{\gram\per\mole} \\\\ Biphenyl}
+\+
+\chemname{\chemfig{!\tb-Cl}}{\ce{C4H9Cl}\\ M = 98.06 \si{\gram\per\mole} \\\\ \textit{tert}-Butylchlorid}
+%\arrow{->[][\parbox{5cm}{\centering \ce{FeCl3}\\ M=162.21 \si{\gram\per\mole} \\ Eisen(III)-chlorid }][32pt]}[,2]
+\arrow{->[\chemfig{FeCl_3}][\chemname[3pt]{\chemfig{}}{\ce{FeCl3}\\ M = 162.21 \si{\gram\per\mole} \\\\ Eisen(III)-chlorid}][34pt]}[,2.2]
+\chemname{\chemfig{!\tb-*6(=-=(-*6(=-=(-!\ta)-=-))-=-)}}{\ce{C20H26}\\ M = 266.42 \si{\gram\per\mole}\\\\ 4,4′-Di-\textit{tert}-butylbiphenyl}
+\schemestop
+}
+%%%%%%%%%%%%%
+% Berechnung des Ansatzes 
+%%%%%%%%%%%%%
+\section{Berechnung des Ansatzes: } 
+Es sollten 5.000 g (18.77 mmol) 4,4′-Di-\textit{tert}-Butylbiphenyl hergestellt werden. Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:\\[0.5cm]
+\begin{tabular}{lrrrr}
+Biphenyl & 1.00 eq  & 26.81 mmol & 4.134 g & \\
+\textit{tert}-Butylchlorid & 3.00 eq &  80.43 mmol & 7.445 g & 8.9 ml\\
+Eisen(III)-chlorid  & 0.04 eq  & 1.07 mmol & 0.174 g & \\
+abs. Dichlormethan & & & & 22 ml \\
+\end{tabular}\\[0.5cm]
+%\footnotesize \textit{$^\ast$ 50\%ige wässrige Lösung} 
+%%%%%%%%%%%%%
+% Durchführung
+%%%%%%%%%%%%%
+\normalsize \section{Durchführung \cite{organikum}} 
+Zuerst wurde ein 100 ml-Dreihalskolben mit Thermometer und einem Rückflusskühler, dessen Ausgang mit zwei Gaswaschflaschen verbunden war, ausgestattet. Zur Aufhebung des entstehenden Chlorwasserstoffs wurde eine Gaswaschflache mit Natronlauge gefüllt. Danach wurden in dem Kolben 4.134 g (26.81 mmol) Biphenyl, 8.9 ml (7.445 g, 80.43 mmol) \textit{tert}-Butylchlorid und 22 ml abs. Dichlormethan vorgelegt. Dann wurden diesem Gemisch unter Rühren 0.174 g (1.07 mmol) Eisen(III)-chlorid zugesetzt und auf 35 \si{\celsius} erwärmt. Nachdem die Gasentwicklung beendet war, wurde das Reaktionsgemisch abgekühlt, mit verdünnter Salzsäure geschüttelt und die organische Phase abgetrennt. Die organische Phase wurde anschließend mit Wasser gewaschen, über Magnesiumsulfat getrocknet, am Rotationsverdampfer eingeengt und aus Ethanol umkristallisiert. Das Produkt 4,4′-Di-\textit{tert}-Butylbiphenyl wurde als gelber Feststoff erhalten.
+%%%%%%%%%%%%%
+% Ausbeute
+%%%%%%%%%%%%%
+\section{Ausbeute} 
+\begin{tabular}{ rl}
+  7.143 g (26.81 mmol) =  & 100 \%\\
+  3.964 g (14.87 mmol) =  &  55 \% (Lit.\cite{organikum} : 70 \%) \\
+ \end{tabular}
+%\newpage
+%%%%%%%%%%%%%
+%Physikalische Daten des Produktes 
+%%%%%%%%%%%%%
+\section{Physikalische Daten des Produktes} 
+\textit{ 4,4′-Di-tert-butylbiphenyl} \\[0.2cm]
+\begin{tabular}{ lrclc }
+ \multicolumn{2}{l}{Schmelzpunkt} & &   \\
+   Lit. \cite{organikum} : &  127 - 128 \si{\celsius}  & &  \\
+   Exp. :&  127 \si{\celsius} & &  \\
+ \end{tabular}
+
+\section{Spektrenauswertung} 
+\textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 2965 (=C-H-Valenzschwingung, Aromat), 2900 (-C-H-Valenzschwingung, Alkan), 1595 (-C=C-Valenzschwingung, Aromat) cm$^{-1}$.\\
+
+\sisetup{
+  separate-uncertainty ,
+  per-mode = symbol ,
+  range-phrase = -- ,
+  detect-mode = false ,
+  detect-weight = false ,
+  mode = text ,
+  text-rm = \libertineLF % use libertine with lining figures
+}
+\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{minipage}[b]{0.60\textwidth} 
+\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\val{1.38} (s, \#{18}, \pos{1}), \val{7.45--7.48} (m, \#{2}, \pos{2}), \val{7.53--7.56} (m, \#{2}, \pos{3}) ppm.
+\end{minipage}
+ \hfill
+\begin{minipage}[t][][b]{0.60\textwidth} 
+\chemfig{(-[::90](!\nobond\chemabove[0.5ex]{}{\hspace{-2mm}\textit{1}}))(-[::180](!\nobond\chembelow[1ex]{}{\textit{1}}))(-[::-90](!\nobond\chembelow[1ex]{}{\textit{1}}))-*6(=(!\nobond\chembelow[1ex]{}{\hspace{-2mm}\textit{2}})-(!\nobond\chembelow[1ex]{}{\hspace{-2mm}\textit{3}})=(-*6(=(!\nobond\chembelow[1ex]{}{\textit{2'}})-(!\nobond\chembelow[1ex]{}{\textit{3'}})=(-(-(!\nobond\chembelow[1ex]{}{\textit{1'}}))(-[:90](!\nobond\chemabove[0.5ex]{}{\hspace{2mm}\textit{1'}}))(-[:-90](!\nobond\chembelow[1ex]{}{\textit{1'}})))-(!\nobond\chemabove[1ex]{}{\textit{3'}})=(!\nobond\chemabove[1ex]{}{\textit{2'}})-))-(!\nobond\chemabove[1ex]{}{\textit{3}})=(!\nobond\chemabove[1ex]{}{\textit{2}})-)}
+\end{minipage}
+\end{experimental}
+\section{Mechanismus\cite{bio}}
+Der Ablauf der Friedel-Crafts-Alkylierung besteht aus zwei Schritten. Zuerst reagiert das \textit{tert}-Butylchlorid (\textbf{1}) mit Eisen(III)-chlorid (\textbf{2}) zu dem Lewis-Säure-Base-Komplex \textbf{3}, der anschließend in ein tertiäres Carbenium-Ion \textbf{4} dissoziert. Letzteres greift anschließend den Benzolring des Biphenyls (\textbf{5}) an, wobei über eine Zwischenstufe \textbf{6} das 4-\textit{tert}-Butylbiphenyl (\textbf{7}) entsteht. Durch eine weitere Alkylierung am zweiten Benzolring entsteht das 4,4′-Di-\textit{tert}-Butylbiphenyl (\textbf{8}).
+\section{Abfallentsorgung}
+Die wässrige Phase wurde nach einer \pH-Wertbestimmung im Behälter für saure Abfälle entsorgt. Das abgetrennte Lösüngsmittel wurde in dem Behälter für halogenhaltige Kohlenwasserstoffe entsorgt. Das Trocknungsmittel wurde in den Feststoffbehälter gegeben.
+\section{Literatur}
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{}
+\bibitem{organikum}
+R. Brückner, H. Beckhaus, S. Braukmüller, J. Dirksen, D. Goeppel, M.estreich, \textit{Praktikum Präparative Organische Chemie}, 1. Aufl., Spektrum Verlag, Heidelberg \textbf{2008}, S. 170. 
+\bibitem{bio}
+J. Buddrus, \textit{Grundlagen der Organische Chemie}, 4. Aufl., De Gruyter, Berlin \textbf{2011}, S. 385.
+\end{thebibliography}
+\end{onehalfspace}
+\end{document}
