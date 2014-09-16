@@ -1,1 +1,2 @@
 compiler: lualatex
+root_file: dba.tex
