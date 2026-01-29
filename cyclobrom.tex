@@ -1,33 +1,54 @@
 \documentclass[12pt]{article}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\usepackage{chemfig}
-\usepackage{sectsty}
+
+% LuaLaTeX basics
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{unicode-math}
+% Fonts (Libertine-Äquivalent, modern)
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+% Layout & typography
+\usepackage[a4paper]{geometry}
 \usepackage{setspace}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{overcite}
 \usepackage{parskip}
-\usepackage{siunitx}
-\usepackage[version=3]{mhchem} 
-\usepackage[method=mhchem]{chemmacros}
-\usepackage{libertine}
-\usepackage[scaled=.83]{beramono}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage[a4paper]{geometry}
+
+% Chemistry
+\usepackage{chemfig}
+\usepackage{chemmacros}
+\usepackage{siunitx}
+\chemsetup{
+  modules = {
+    reactions,
+    spectroscopy,
+    scheme
+  },
+  formula = mhchem
+}
+% Headers
+\usepackage{fancyhdr}
+
+% Section styling (statt sectsty)
+\usepackage{titlesec}
+\titleformat{\section}
+  {\fontsize{12}{15}\selectfont\bfseries}
+  {\arabic{section}.}{1em}{}
+
+% Misc
+\usepackage{overcite} % optional
 
 % you can delete this line if you don't use libertine with oldstyle figures:
-
 \expandafter\def\csname libertine@figurestyle\endcsname{LF}
- 
+
 % you can delete this line if you don't use libertine with oldstyle figures:
 \expandafter\def\csname libertine@figurestyle\endcsname{OsF}
 
 \definesubmol\nobond{[,0.2,,,draw=none]}
-
-\sectionfont{\fontsize{12}{15}\selectfont}
+\setchemfig{atom sep=1.8em}
 
 \pagestyle{fancy}
 \lhead{Nevroz Arslan }
@@ -44,20 +65,23 @@
 \begin{document}
 \begin{onehalfspace}
 \section{Reaktionstyp: Nucleophile Substitution $S_{N}1$} 
+
 \begin{center}
+\setchemfig{atom sep=2.2em}
 \schemestart
-\chemnameinit{\chemfig{R-C(-[:-30]OH)=[:30]O}}
-\chemname{\chemfig{*6(----(-OH)--)}}{\ce{C6H11OH}\\ \footnotesize M = 100.16 \si{\MolMass}\\\\
-Cyclohexanol}
-\+{,,15pt}
-\huge \chemfig[yshift=15pt]{HBr}
-\arrow{->[][][15pt]}[,2]
-\chemname{\chemfig{*6(----(-Br)--)}}{\ce{C6H11Br}\\ \footnotesize M = 163.06 \si{\MolMass}\\\\Bromcyclohexan}
-\+{,,15pt}
-\chemfig[yshift=15pt]{H_2O}
+\chemname{\chemfig{*6(----(-OH)--)}}{%
+\ce{C6H11OH}\\
+{\footnotesize M = 100.16\,\si{\MolMass}}\\
+\textit{Cyclohexanol}}
+\arrow{->[\footnotesize\chemfig{HBr}][\footnotesize\chemfig{H_2O}][15pt]}[,2]
+\chemname{\chemfig{*6(----(-Br)--)}}{%
+\ce{C6H11Br}\\
+{\footnotesize M = 163.06\,\si{\MolMass}}\\
+\textit{Bromcyclohexan}}
 \schemestop
 \end{center}
-%\arrow{->[\chemfig{H_3PO_4}][][15pt]}[,2,,thick]
+
+
 \section{Berechnung des Ansatzes: } 
 Es sollten 10.000 g (61.33 mmol) Bromcyclohexan hergestellt werden.
 Die Umrechnung des Literaturansatzes \cite{organikum} ergab folgenden Ansatz:
@@ -84,29 +108,34 @@ In einem 100 ml-Dreihalskolben mit Rückflusskühler wurden 9.968 g (94.35 mmol)
 \section{Spektrenauswertung} 
 \textbf{IR-Spektrum } (NaCl, flüssig): $\tilde{\nu}$ = 2935 (C-H Valenz-Schwingung, -\ce{CH2}- )  686, (-C-Br Valenz-Schwingung, Brom) cm$^{-1}$.\\
 \sisetup{
-  separate-uncertainty ,
-  per-mode = symbol ,
-  range-phrase = -- ,
-  detect-mode = false ,
-  detect-weight = true ,
-  mode = text ,
-  text-rm = \libertineLF % use libertine with lining figures
+  separate-uncertainty = true,
+  per-mode = symbol,
+  range-phrase = --,
+  mode = text
 }
-\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+\begin{experimental}[format=\bfseries,delta=(ppm),use-equal,pos-number = side]
 %\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
-\begin{minipage}[b]{0.85\textwidth} 
 
-\NMR* (300 \si{\MHz}, \ch{CDCl3}): \val{1.27--1.35} (m, \#{2}, \pos{4}), 
+ \SI{300}{\mega\hertz}: \chemdelta = \val{1.27--1.35} (m, \#{2}, \pos{4}), 
                   \val{1.52--1.71} (m, \#{2}, \pos{3}),
                   \val{1.72--1.78} (m, \#{4}, \pos{2}, \pos{3}), \\
                   \val{1.81--2.10} (m, \#{2}, \pos{2}), 
                   \val{4.09--4.13} (m, \#{1}, \pos{1}) ppm.
-  \end{minipage}
-  \hfill
-\begin{minipage}[t][][b]{0.15\textwidth} 
-\chemfig[][scale=.7]{*6(-(!\nobond\chembelow[1ex]{}{4})-(!\nobond\chembelow[1ex]{}{3})-(!\nobond\chemabove[1ex]{}{2})-(!\nobond\chembelow[1ex]{}{1})(-Br)--)}
-  \end{minipage}
+
+\medskip
+
+\begin{center}
+\chemfig[scale=.7]{*6(
+  -(!\nobond\chembelow[1ex]{}{4})
+  -(!\nobond\chembelow[1ex]{}{3})
+  -(!\nobond\chemabove[1ex]{}{2})
+  -(!\nobond\chembelow[1ex]{}{1})(-Br)--)}
+\end{center}
+
 \end{experimental} 
+
+
+
 %   \val{2.11}  (s, \J(2;CH)[Hz]{ 2.07 }, \#{2}, H-2, \pos{2}), 
 
 %   \val{2.11}  (s, \J(2;CH)[Hz]{ 2.07 }, \#{2}, H-2, \pos{2}), 

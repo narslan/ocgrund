@@ -1,35 +1,54 @@
 \documentclass[12pt]{article}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\usepackage{chemfig}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{overcite}
-\usepackage{parskip}
-\usepackage{siunitx}
-\usepackage[version=3]{mhchem} 
-\usepackage[method=mhchem]{chemmacros}
-\usepackage{libertine}
-\usepackage[scaled=.83]{beramono}
-\usepackage{graphicx}
-\usepackage[a4paper]{geometry}
-\usepackage{hyperref}
-\usepackage{color}
 
+% LuaLaTeX basics
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{unicode-math}
+% Fonts (Libertine-Äquivalent, modern)
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+% Layout & typography
+\usepackage[a4paper]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Chemistry
+\usepackage{chemfig}
+\usepackage{chemmacros}
+\usepackage{siunitx}
+\chemsetup{
+  modules = {
+    reactions,
+    spectroscopy,
+    scheme
+  },
+  formula = mhchem
+}
+% Headers
+\usepackage{fancyhdr}
+
+% Section styling (statt sectsty)
+\usepackage{titlesec}
+\titleformat{\section}
+  {\fontsize{12}{15}\selectfont\bfseries}
+  {\arabic{section}.}{1em}{}
+
+% Misc
+\usepackage{overcite} % optional
 
 % you can delete this line if you don't use libertine with oldstyle figures:
-
 \expandafter\def\csname libertine@figurestyle\endcsname{LF}
 
 % you can delete this line if you don't use libertine with oldstyle figures:
 \expandafter\def\csname libertine@figurestyle\endcsname{OsF}
 
 \definesubmol\nobond{[,0.2,,,draw=none]}
-
-\sectionfont{\fontsize{12}{15}\selectfont}
+\setchemfig{atom sep=1.8em}
 
 \pagestyle{fancy}
 \lhead{Nevroz Arslan }
@@ -42,7 +61,6 @@
 \renewcommand{\thesubsection}{\thesection\arabic{subsection}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
-\setdoublesep{4pt} 
 
 \begin{document}
 \begin{onehalfspace}
@@ -50,22 +68,20 @@
 %\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
 \section{Reaktionstyp: $E_1$, Eliminierung erster Ordnung} 
 \begin{center}
+\setchemfig{atom sep=2.2em}
 \schemestart
-\chemname{\chemfig{*6(----(-OH)--)}}{\footnotesize \ce{C6H11OH}\\ \footnotesize M = 100.16 \si{\gram\per\mole} \\\\Cyclohexanol}
-\arrow{->[\chemfig{H_3PO_4}][][15pt]}[,2,,thick]
-\chemname{\chemfig{*6(---=(-[,,,,draw=none]\textcolor{white}{OH})--)}}{\footnotesize \ce{C6H10}\\ \footnotesize M = 82.15 \si{\gram\per\mole} \\\\Cyclohexen}
+\chemname{\chemfig{*6(----(-OH)--)}}{%
+\ce{C6H11OH}\\
+{\footnotesize M = 100.16\,\si{\MolMass}}\\
+\textit{Cyclohexanol}}
+\arrow{->[\footnotesize\chemfig{H_3PO_4}][\footnotesize$\Delta$][15pt]}[,2]
+\chemname{\chemfig{*6(---=---)}}{%
+\ce{C6H10}\\
+{\footnotesize M = 82.15\,\si{\MolMass}}\\
+\textit{Cyclohexen}}
 \schemestop
-%\schemestart
-%\subscheme{
-%\chemname{\chemfig[][scale=0.9]{*6(----(-OH)--)}}{\footnotesize \ce{C6H11OH}\\ \scriptsize M = 100.16 \si{\gram\per\mole} \\\\Cyclohexanol}
-%}
-%\subscheme{
-%\arrow{->[\chemfig{H_3PO_4}][][15pt]}
-%\chemname{\chemfig[][scale=0.9]{*6(---=--)}}{\footnotesize \ce{C6H10}\\ \scriptsize M = 82.15 \si{\gram\per\mole} \\\\Cyclohexen}
-%}
-%\chemsign{+}
-%\chemfig{H_2O}
 \end{center}
+
 %%%%%%%%%%%%%
 % Berechnung des Ansatzes 
 %%%%%%%%%%%%%
@@ -112,25 +128,20 @@ Da im Rohprodukt Wasser vorhanden war, wurde dieses zunächst im Scheidetrichter
 2925, 2858, 2838 ( -C-H Valenz-Schwingung, -\ce{CH2}-), 1652 ( -C=C Valenz-Schwingung, -C=C-) , 1437 ( -C-H Deformation-Schwingung, -\ce{CH2}-) cm$^{-1}$.\\
 
 \sisetup{
-  separate-uncertainty ,
-  per-mode = symbol ,
-  range-phrase = -- ,
-  detect-mode = false ,
-  detect-weight = true ,
-  mode = text ,
-  text-rm = \libertineLF % use libertine with lining figures
+  separate-uncertainty = true,
+  per-mode = symbol,
+  range-phrase = --,
+  mode = text
 }
-\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+\begin{experimental}[format=\bfseries,delta=(ppm),use-equal,pos-number = side]
 
-\begin{minipage}[b]{0.90\textwidth} 
+\SI{300}{\mega\hertz}: \chemdelta = \val{1.57}--\val{1.65}  (m, \#{4}, \pos{4}, \pos{5}), \val{1.85}--\val{2.01}  (m, \#{4}, \pos{3}, \pos{6}), \val{5.60}--\val{5.80} (m, \#{2}, \pos{1}, \pos{2}) ppm.
 
-\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = \val{1.57}--\val{1.65}  (m, \#{4}, \pos{4}, \pos{5}), \val{1.85}--\val{2.01}  (m, \#{4}, \pos{3}, \pos{6}), \val{5.60}--\val{5.80} (m, \#{2}, \pos{1}, \pos{2}) ppm.
-  \end{minipage}
-  \hfill
-\begin{minipage}[t][][b]{0.10\textwidth} 
+\medskip
+\begin{center}
+\chemfig[scale=.7]{*6((!\nobond\chembelow[1ex]{}{5})-(!\nobond\chembelow[1ex]{}{4})-(!\nobond\chembelow[1ex]{}{3})-(!\nobond\chemabove[1ex]{}{2})=(!\nobond\chemabove[1ex]{}{1})-(!\nobond\chemabove[1ex]{}{6})-)}
+\end{center}
 
-\chemfig[][scale=.7]{*6((!\nobond\chembelow[1ex]{}{5})-(!\nobond\chembelow[1ex]{}{4})-(!\nobond\chembelow[1ex]{}{3})-(!\nobond\chemabove[1ex]{}{2})=(!\nobond\chemabove[1ex]{}{1})-(!\nobond\chemabove[1ex]{}{6})-)}
-  \end{minipage}
 \end{experimental}
 %   \val{2.11}  (s, \J(2;CH)[Hz]{ 2.07 }, \#{2}, H-2, \pos{2}), 
 

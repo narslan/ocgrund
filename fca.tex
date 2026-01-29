@@ -1,47 +1,55 @@
 \documentclass[12pt]{article}
-\usepackage[latin1]{}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\usepackage{chemfig}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{overcite}
-\usepackage{parskip}
-\usepackage{siunitx}
-\usepackage[version=3]{mhchem} 
-\usepackage[method=mhchem]{chemmacros}
-\usepackage{libertine}
-\usepackage[scaled=.83]{beramono}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[a4paper]{geometry}
-\usepackage{unicode-math}
-\usepackage{microtype}
-\usepackage{xcolor}
 
+% LuaLaTeX basics
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{unicode-math}
+% Fonts (Libertine-Äquivalent, modern)
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+% Layout & typography
+\usepackage[a4paper]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Chemistry
+\usepackage{chemfig}
+\usepackage{chemmacros}
+\usepackage{siunitx}
+\chemsetup{
+  modules = {
+    reactions,
+    spectroscopy,
+    scheme
+  },
+  formula = mhchem
+}
+% Headers
+\usepackage{fancyhdr}
+
+% Section styling (statt sectsty)
+\usepackage{titlesec}
+\titleformat{\section}
+  {\fontsize{12}{15}\selectfont\bfseries}
+  {\arabic{section}.}{1em}{}
+
+% Misc
+\usepackage{overcite} % optional
+
+% you can delete this line if you don't use libertine with oldstyle figures:
 \expandafter\def\csname libertine@figurestyle\endcsname{LF}
 
 % you can delete this line if you don't use libertine with oldstyle figures:
 \expandafter\def\csname libertine@figurestyle\endcsname{OsF}
 
 \definesubmol\nobond{[,0.2,,,draw=none]}
-\sectionfont{\fontsize{12}{15}\selectfont}
+\setchemfig{atom sep=1.8em}
 
-\pagestyle{fancy}
-\lhead{Nevroz Arslan }
-\rhead{13.07.2014}
-\setlength{\headheight}{15pt}
-
-\renewcommand\citeform[1]{[#1]}
-\renewcommand{\thesection}{\arabic{section}.}
-\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
-\setatomsep{2em}
-\setcompoundsep{6em}
-\setdoublesep{3pt} 
 \definesubmol\tb{(-[::90])(-[::180])(-[::270])}
 \definesubmol\ta{(-)(-[:90])(-[:-90])}
 \begin{document}
@@ -50,8 +58,7 @@
 %\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
 \section{Reaktionstyp: \textnormal{Friedel-Crafts-Alkylierung}} 
 %Gruppen
-\setarrowdefault{,1.5,,thick}
-\scalebox{.8}{
+
 %\schemedebug{true}
 \schemestart
 \chemname{\chemfig{[:-30]*6(=-=(-*6(=-=-=-))-=-)}}{\ce{C12H10}\\ M = 154.21 \si{\gram\per\mole} \\\\ Biphenyl}
@@ -61,7 +68,7 @@
 \arrow{->[\chemfig{FeCl_3}][\chemname[3pt]{\chemfig{}}{\ce{FeCl3}\\ M = 162.21 \si{\gram\per\mole} \\\\ Eisen(III)-chlorid}][34pt]}[,2.2]
 \chemname{\chemfig{!\tb-*6(=-=(-*6(=-=(-!\ta)-=-))-=-)}}{\ce{C20H26}\\ M = 266.42 \si{\gram\per\mole}\\\\ 4,4′-Di-\textit{tert}-butylbiphenyl}
 \schemestop
-}
+
 %%%%%%%%%%%%%
 % Berechnung des Ansatzes 
 %%%%%%%%%%%%%
@@ -103,24 +110,21 @@ Zuerst wurde ein 100 ml-Dreihalskolben mit Thermometer und einem Rückflusskühl
 \textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 2965 (=C-H-Valenzschwingung, Aromat), 2900 (-C-H-Valenzschwingung, Alkan), 1595 (-C=C-Valenzschwingung, Aromat) cm$^{-1}$.\\
 
 \sisetup{
-  separate-uncertainty ,
-  per-mode = symbol ,
-  range-phrase = -- ,
-  detect-mode = false ,
-  detect-weight = false ,
-  mode = text ,
-  text-rm = \libertineLF % use libertine with lining figures
+  separate-uncertainty = true,
+  per-mode = symbol,
+  range-phrase = --,
+  mode = text
 }
-\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
-%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
-\begin{minipage}[b]{0.60\textwidth} 
-\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\begin{experimental}[format=\bfseries,delta=(ppm), use-equal,pos-number = side]
+
+\SI{300}{\mega\hertz}: \chemdelta = 
 \val{1.38} (s, \#{18}, \pos{1}), \val{7.45--7.48} (m, \#{2}, \pos{2}), \val{7.53--7.56} (m, \#{2}, \pos{3}) ppm.
-\end{minipage}
- \hfill
-\begin{minipage}[t][][b]{0.60\textwidth} 
+
+\medskip
+\begin{center}
 \chemfig{(-[::90](!\nobond\chemabove[0.5ex]{}{\hspace{-2mm}\textit{1}}))(-[::180](!\nobond\chembelow[1ex]{}{\textit{1}}))(-[::-90](!\nobond\chembelow[1ex]{}{\textit{1}}))-*6(=(!\nobond\chembelow[1ex]{}{\hspace{-2mm}\textit{2}})-(!\nobond\chembelow[1ex]{}{\hspace{-2mm}\textit{3}})=(-*6(=(!\nobond\chembelow[1ex]{}{\textit{2'}})-(!\nobond\chembelow[1ex]{}{\textit{3'}})=(-(-(!\nobond\chembelow[1ex]{}{\textit{1'}}))(-[:90](!\nobond\chemabove[0.5ex]{}{\hspace{2mm}\textit{1'}}))(-[:-90](!\nobond\chembelow[1ex]{}{\textit{1'}})))-(!\nobond\chemabove[1ex]{}{\textit{3'}})=(!\nobond\chemabove[1ex]{}{\textit{2'}})-))-(!\nobond\chemabove[1ex]{}{\textit{3}})=(!\nobond\chemabove[1ex]{}{\textit{2}})-)}
-\end{minipage}
+\end{center}
+
 \end{experimental}
 \section{Mechanismus\cite{bio}}
 Der Ablauf der Friedel-Crafts-Alkylierung besteht aus zwei Schritten. Zuerst reagiert das \textit{tert}-Butylchlorid (\textbf{1}) mit Eisen(III)-chlorid (\textbf{2}) zu dem Lewis-Säure-Base-Komplex \textbf{3}, der anschließend in ein tertiäres Carbenium-Ion \textbf{4} dissoziert. Letzteres greift anschließend den Benzolring des Biphenyls (\textbf{5}) an, wobei über eine Zwischenstufe \textbf{6} das 4-\textit{tert}-Butylbiphenyl (\textbf{7}) entsteht. Durch eine weitere Alkylierung am zweiten Benzolring entsteht das 4,4′-Di-\textit{tert}-Butylbiphenyl (\textbf{8}).
