@@ -18,8 +18,8 @@
 \usepackage{amsmath}
 
 % Chemistry
-\usepackage{chemfig}
 \usepackage{chemmacros}
+\usepackage{chemfig}
 \usepackage{siunitx}
 \chemsetup{
   modules = {
@@ -70,16 +70,12 @@
 
 %\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
 \section{Reaktionstyp: \textnormal{Mannich Reaktion}}
-
-%Gruppen
 \definesubmol{diazo}{\chemfig{*6((-O_2N)-=-(-\chemabove[0.5pt]{N}{\scriptstyle\oplus}~N)=-=)}}
 \definesubmol{wdiazo}{\chemfig{*6((-O_2N)-=-(-N=N)=-=)}}
 \definesubmol{betanaphtol}{\chemfig{*6(=-*6(-=-(-OH)=-)=-=-)}}
 \begin{center}
-%\schemedebug{true}
 \schemestart
 \chemname{\chemfig[][]{*6(-=*5(-\chembelow{N}{H}-=-)-=-=)}}{\ce{C8H7N}\\ M = 117.15 \si{\gram\per\mole} \\\\ Indol}
-%\arrow(.east--.south west){0}[,0]
 \+{,,7pt}
 \chemname{\chemfig[]{H-[:+30,0.8](=[2,0.7]O)-[:-30,0.7]H}}{\ce{CH_2O}\\ M = 30.03 \si{\gram\per\mole} \\\\ Formaldehyd}
 \+{,,7pt}
