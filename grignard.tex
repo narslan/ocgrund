@@ -1,33 +1,39 @@
 \documentclass[12pt]{article}
-\usepackage[latin1]{}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\usepackage{chemfig}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{overcite}
-\usepackage{parskip}
-\usepackage{siunitx}
-\usepackage[version=3]{mhchem} 
-\usepackage[method=mhchem]{chemmacros}
-\usepackage{libertine}
-\usepackage[scaled=.83]{beramono}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[a4paper]{geometry}
+
+% LuaLaTeX basics
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{unicode-math}
-\usepackage{microtype}
-\usepackage{xcolor}
+% Fonts (Libertine-Äquivalent, modern)
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
 
-\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+% Layout & typography
+\usepackage[a4paper]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath}
 
-% you can delete this line if you don't use libertine with oldstyle figures:
-\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+% Chemistry
+\usepackage{chemfig}
+\usepackage[modules]{chemmacros}
+\usepackage{siunitx}
+\chemsetup{
+  modules = {
+    reactions,
+    spectroscopy,
+    scheme
+  },
+  formula = mhchem
+}
+\usepackage{fancyhdr}
+\usepackage{overcite}
+\usepackage{hyperref}
 
-\definesubmol\nobond{[,0.2,,,draw=none]}
-\sectionfont{\fontsize{12}{15}\selectfont}
+\definesubmol\nobond{[,0.4,,,draw=none]}
 
 \pagestyle{fancy}
 \lhead{Nevroz Arslan }
@@ -39,14 +45,12 @@
 \renewcommand{\thesubsection}{\thesection\arabic{subsection}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand*\printatom[1]{{\fontsize{10}{12}\selectfont\ensuremath{\mathsf{#1}}}} 
-\setdoublesep{4pt} 
 \begin{document}
 \begin{onehalfspace}
 
 %\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
 \section{Reaktionstyp: \textnormal{Grignard Reaktion}} 
 %Gruppen
-\setarrowdefault{,1.5,,thick}
 {\footnotesize Darstellung des Grignard-Reagenzes:}\\[0.3cm]
 \scalebox{.8}{
 \schemestart
@@ -106,28 +110,18 @@ Zur Darstellung der Grignard-Reagenz wurde zunächst ein 250 ml-Dreihalskolben, 
 \section{Spektrenauswertung} 
 \textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3400 ( -O-H-Valenzschwingung), 3056 ( =C-H-Valenzschwingung, Aromat), 2995, 2977 ( -C-H-Valenzschwingung, Alkan), 1493 ( -C=C-Valenzschwingung, Aromat) cm$^{-1}$.\\
 
-\sisetup{
-  separate-uncertainty ,
-  per-mode = symbol ,
-  range-phrase = -- ,
-  detect-mode = false ,
-  detect-weight = false ,
-  mode = text ,
-  text-rm = \libertineLF % use libertine with lining figures
-}
-\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
-%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
+\begin{experimental}[format=\bfseries,delta=(ppm), use-equal,pos-number = side]
 \begin{minipage}[b]{0.60\textwidth} 
-\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = 
+\SI{300}{\mega\hertz}: \chemdelta =
 \val{1.98} (s, \#{3}, \pos{2}),
 \val{2.18} (s, \#{1}, \pos{1}),
 \val{7.31--7.45} (m, \#{10}, \pos{3}, \pos{4}, \pos{5}, \pos{6}, \pos{7}, \pos{3$'$}, \pos{4$'$}, \pos{5$'$}, \pos{6$'$}, \pos{7$'$}) ppm.
 \end{minipage}
  \hfill
-\begin{minipage}[t][][b]{0.40\textwidth} 
-\chemfig[][scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{5}})-(!\nobond\chembelow[1ex]{}{\textit{6}})=(!\nobond\chembelow[1ex]{}{\textit{7}})-(!\nobond\chemabove[10ex]{}{\textit{1}})(-(-[:110]{HO})(-[:-110](!\nobond\chembelow[1.5ex]{}{\textit{2}}))-[:-30](*6(-(!\nobond\chembelow[1.5ex]{}{\textit{7}'})=(!\nobond\chembelow[1.5ex]{}{\textit{6}'})-(!\nobond\chembelow[1.5ex]{}{\textit{5}'})=(!\nobond\chemabove[1.5ex]{}{\textit{4}'})-(!\nobond\chemabove[1ex]{}{\textit{3}'})=)))=(!\nobond\chemabove[1ex]{}{\textit{3}})-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=)}
+\begin{center} 
+\chemfig[scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{5}})-(!\nobond\chembelow[1ex]{}{\textit{6}})=(!\nobond\chembelow[1ex]{}{\textit{7}})-(!\nobond\chemabove[10ex]{}{\textit{1}})(-(-[:110]{HO})(-[:-110](!\nobond\chembelow[1.5ex]{}{\textit{2}}))-[:-30](*6(-(!\nobond\chembelow[1.5ex]{}{\textit{7}'})=(!\nobond\chembelow[1.5ex]{}{\textit{6}'})-(!\nobond\chembelow[1.5ex]{}{\textit{5}'})=(!\nobond\chemabove[1.5ex]{}{\textit{4}'})-(!\nobond\chemabove[1ex]{}{\textit{3}'})=)))=(!\nobond\chemabove[1ex]{}{\textit{3}})-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=)}
 
-\end{minipage}
+\end{center}
 \end{experimental}
 
 \section{Mechanismus\cite{bio}\cite{sig}}

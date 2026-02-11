@@ -1,33 +1,39 @@
 \documentclass[12pt]{article}
-\usepackage[latin1]{}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\usepackage{chemfig}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{overcite}
-\usepackage{parskip}
-\usepackage{siunitx}
-\usepackage[version=4]{mhchem} 
-\usepackage[method=mhchem]{chemmacros}
-\usepackage{libertine}
-\usepackage[scaled=.83]{beramono}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[a4paper]{geometry}
+
+% LuaLaTeX basics
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{unicode-math}
-\usepackage{microtype}
-\usepackage{xcolor}
+% Fonts (Libertine-Äquivalent, modern)
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
 
-\expandafter\def\csname libertine@figurestyle\endcsname{LF}
+% Layout & typography
+\usepackage[a4paper]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath}
 
-% you can delete this line if you don't use libertine with oldstyle figures:
-\expandafter\def\csname libertine@figurestyle\endcsname{OsF}
+% Chemistry
+\usepackage{chemfig}
+\usepackage[modules]{chemmacros}
+\usepackage{siunitx}
+\chemsetup{
+  modules = {
+    reactions,
+    spectroscopy,
+    scheme
+  },
+  formula = mhchem
+}
+\usepackage{fancyhdr}
+\usepackage{overcite}
+\usepackage{hyperref}
 
-\definesubmol\nobond{[,0.2,,,draw=none]}
-\sectionfont{\fontsize{12}{15}\selectfont}
+\definesubmol\nobond{[,0.4,,,draw=none]}
 
 \pagestyle{fancy}
 \lhead{Nevroz Arslan }
@@ -54,7 +60,7 @@
 \+{,,25pt}
 \chemname{\chemfig{HO-[:30](=[2]O)-[:-30]-[:30](=[2]O)-[:-30]OH}}{\ce{C3H4O4}\\ M = 104.06 \si{\gram\per\mole} \\\\Malonsäure}
 %\chemname{\chemfig{!{diazo}}}{}*6(-=-(-C(12))=-=)}
-\arrow{->[\chemname{\chemfig[][scale=0.8]{*6(-\chembelow{N}{H}-----)}}{\\ \ce{C5H11N}\\ M = 85.15 \si{\gram\per\mole} \\ Piperidin }][\chemname{\chemfig[][scale=0.8]{*6(-N=-=-=)}}{\\ \ce{C5H5N}\\ M = 79.10 \si{\gram\per\mole} \\ Pyridin}][30pt]}[,2]
+\arrow{->[\chemname{\chemfig[scale=0.8]{*6(-\chembelow{N}{H}-----)}}{\\ \ce{C5H11N}\\ M = 85.15 \si{\gram\per\mole} \\ Piperidin }][\chemname{\chemfig[scale=0.8]{*6(-N=-=-=)}}{\\ \ce{C5H5N}\\ M = 79.10 \si{\gram\per\mole} \\ Pyridin}][30pt]}[,2]
 \chemname{\chemfig{*6(-=-(-=[:-30]-[:30](=[2]O)-[:-30]OH)=-=)}}{\ce{C9H8O2}\\ M = 148.16 \si{\gram\per\mole} \\\\\iupac{\E-3-Phenylpropensäure}}
 \schemestop
 }
@@ -98,28 +104,19 @@ In einem 250 ml-Dreihalskolben, ausgestattet mit Rückflusskühler und Blasenzä
 \section{Spektrenauswertung} 
 \textbf{IR-Spektrum} (KBr, fest): $\tilde{\nu}$ = 3115-2400 ( -O-H-Valenzschwingung), 1672,1612 ( -C=O-Valenzschwingung), 1494 ( -C=C-Valenzschwingung) cm$^{-1}$.\\
 
-\sisetup{
-  separate-uncertainty ,
-  per-mode = symbol ,
-  range-phrase = -- ,
-  detect-mode = false ,
-  detect-weight = false ,
-  mode = text ,
-  text-rm = \libertineLF % use libertine with lining figures
-}
-\begin{experimental}[format=\bfseries,delta=(ppm),list=true,use-equal,pos-number = side]
+\begin{experimental}[format=\bfseries,delta=(ppm),use-equal,pos-number = side]
 %\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
 \begin{minipage}[b]{0.65\textwidth} 
-\NMR* (300 \si{\MHz}, \ch{CDCl3}): \chemdelta = \val{6.46} (d, $^{3\!}J = 15.9$ \si{\Hz}, \#{1}, \pos{3}),
+\SI{300}{\mega\hertz}: \chemdelta =  \val{6.46} (d, $^{3\!}J = 15.9$ \si{\Hz}, \#{1}, \pos{3}),
 \val{7.31--7.45} (m, \#{5}, \pos{6}, \pos{7}, \pos{8}, \pos{9}, \pos{10}),
 \val{7.80} (d, $^{3\!}J = 15.9$ \si{\Hz},\#{1}, \pos{4}),
 \val{11.0} (s, \#{1}, \pos{1})
  ppm.
 \end{minipage}
  \hfill
-\begin{minipage}[t][][b]{0.40\textwidth} 
-\chemfig[][scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{8}})-(!\nobond\chembelow[1.5ex]{}{\textit{9}})=(!\nobond\chembelow[1.5ex]{}{\textit{10}})-(!\nobond\chemabove[1.5ex]{}{\textit{5}})(-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=[:-30](!\nobond\chembelow[1.5ex]{}{\textit{3}})-[:30]((!\nobond\chembelow[1.5ex]{}{\textit{2}})=[2]O)-[:-30]\chembelow{O}{\textit{1}}H)=(!\nobond\chemabove[1.5ex]{}{\textit{6}})-(!\nobond\chemabove[1.5ex]{}{\textit{7}})=)}
-\end{minipage}
+\begin{center} 
+\chemfig[scale=0.8]{*6((!\nobond\chembelow[1.5ex]{}{\textit{8}})-(!\nobond\chembelow[1.5ex]{}{\textit{9}})=(!\nobond\chembelow[1.5ex]{}{\textit{10}})-(!\nobond\chemabove[1.5ex]{}{\textit{5}})(-(!\nobond\chemabove[1.5ex]{}{\textit{4}})=[:-30](!\nobond\chembelow[1.5ex]{}{\textit{3}})-[:30]((!\nobond\chembelow[1.5ex]{}{\textit{2}})=[2]O)-[:-30]\chembelow{O}{\textit{1}}H)=(!\nobond\chemabove[1.5ex]{}{\textit{6}})-(!\nobond\chemabove[1.5ex]{}{\textit{7}})=)}
+\end{center}
 \end{experimental}
 \section{Mechanismus\cite{bio}}
 Der Mechanismus der Knoevenagel-Reaktion ähnelt dem der Aldol-Kondensation. In dem ersten Schritt der Reaktion wird die Methylengruppe der Malonsäure (\textbf{1}) 

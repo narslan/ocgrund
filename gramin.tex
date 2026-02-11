@@ -70,29 +70,25 @@
 
 %\chemrel[\chemfig{H_2O}][\chemfig{Hg{(OAc)}_2}]{->}
 \section{Reaktionstyp: \textnormal{Mannich Reaktion}}
-\definesubmol{diazo}{\chemfig{*6((-O_2N)-=-(-\chemabove[0.5pt]{N}{\scriptstyle\oplus}~N)=-=)}}
-\definesubmol{wdiazo}{\chemfig{*6((-O_2N)-=-(-N=N)=-=)}}
-\definesubmol{betanaphtol}{\chemfig{*6(=-*6(-=-(-OH)=-)=-=-)}}
+\setchemfig{baseline}
+
 \begin{center}
 \schemestart
-\chemname{\chemfig[][]{*6(-=*5(-\chembelow{N}{H}-=-)-=-=)}}{\ce{C8H7N}\\ M = 117.15 \si{\gram\per\mole} \\\\ Indol}
-\+{,,7pt}
-\chemname{\chemfig[]{H-[:+30,0.8](=[2,0.7]O)-[:-30,0.7]H}}{\ce{CH_2O}\\ M = 30.03 \si{\gram\per\mole} \\\\ Formaldehyd}
-\+{,,7pt}
-\chemname{\chemfig[]{H_3C-[:+30,0.8]N(-[2,0.7]H)-[:-30,0.7]CH_3}}{\ce{C2H7N}\\ M = 45.08 \si{\gram\per\mole} \\\\ Dimethylamin}
-\arrow(.mid east--[yshift=1pt]){->[\chemfig{AcOH}][-\chemfig{H_2O}]}
-\chemname{
-\chemfig{
-*6(
- -(-NH)-=-=
- -[:30]CH_2-N(-CH_3)(-CH_3)
- -[:210]=
-)
-}}{%
-\ce{C11H14N2}\\
-M = 174.24 \si{\gram\per\mole}\\
-\iupac{3-(Dimethylaminomethyl)indol}
-}
+\chemname
+  {\chemfig[baseline]{*6(-=*5(-\chembelow{N}{H}-=-)-=-=)}}
+  {\shortstack{\ce{C8H7N}\\Indol}}
+\+
+\chemname
+  {\chemfig[baseline]{H-[:+30,0.8](=[2,0.7]O)-[:-30,0.7]H}}
+  {\shortstack{\ce{CH2O}\\Formaldehyd}}
+\+
+\chemname
+  {\chemfig[baseline]{H_3C-[:+30,0.8]N(-[2,0.7]H)-[:-30,0.7]CH_3}}
+  {\shortstack{\ce{C2H7N}\\Dimethylamin}}
+\arrow{->[\chemfig{AcOH}][-\chemfig{H_2O}]}
+\chemname
+  {\chemfig[baseline]{*6(-=*5(-\chembelow{N}{H}-=(-[:72,0.7](-[:18,0.8]N(-[:42,0.7]CH_3)(-[:-42,0.7]CH_3)))-)-=-=)}}
+  {\shortstack{\ce{C11H14N2}\\\iupac{3-(Dimethylaminomethyl)indol}}}
 \schemestop
 \end{center}
 
@@ -142,7 +138,6 @@ Zur Darstellung des Imminiumions wurde in einem 100 ml-Dreihalskolben, ausgestat
   mode = text
 }
 \begin{experimental}[format=\bfseries,delta=(ppm),use-equal,pos-number = side]
-%\data{IR}[NaCl] \val{2935} (), \val{3061} (w)
 \SI{300}{\mega\hertz}: \chemdelta =
 \val{2.29} (s, \#{6}, \pos{12}, \pos{13}),
 \val{3.63} (s, \#{2}, \pos{10}),
