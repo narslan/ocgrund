@@ -1,8 +1,12 @@
 ## Protokolle (Organische Chemie Grundpraktikum) 
 
 Diese Sammlung enthält Laborprotokolle aus meinem Grundpraktikum.
-Die Dokumente können als **Vorlagen**, **Layout-Referenzen** oder als Beispiel für 
+* Die Dokumente können als **Vorlagen**, **Layout-Referenzen** oder als Beispiel für 
 Molekülszeichnung mit LuaLaTeX verwendet werden.  
+
+* Die Protokolle dienen ausschließlich als Vorlage, und zeigen Beispiele wie LuaLaTex im Zusammenhang eines Chemiepraktikums verwendet wurde. 
+
+* Die Dokumente sind alte Praktikumsprotokolle vor etwa zehn Jahren und spiegeln den damaligen Stand wider.
 
 
 - Nucleophile Substitution [Cyclobrom](cyclobrom.pdf)
@@ -17,12 +21,9 @@ Molekülszeichnung mit LuaLaTeX verwendet werden.
 - Isolierung von Trimyristin [Tetradecansäure1,2,3propantriylester](trimrystin.pdf)
 - Knoevenagel Reaktion [(E)-3-Phenylpropensäure](zimt.pdf)
 
-### Hinweise zur Nutzung
 
-Die Protokolle hier dienen nur zu Lern- und Referenzzwecken.
-
-Chemische Gleichungen, Reaktionsmechanismen und Auswertungen sind in den PDFs enthalten.
-
-Die Protokolle wurden mit LuaTeX erstellt.
-
-Diese Dokumente entstanden vor ca. 10 Jahren. Einige Zeilen können vereinfacht werden.
+### Kern-Techstack
+* LuaLaTeX
+* chemfig / chemmacros
+* TikZ / PGFPlots
+* Grafikgenerierung
